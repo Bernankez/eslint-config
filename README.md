@@ -1,8 +1,8 @@
-# @antfu/eslint-config
+# @bernankez/eslint-config
 
-[![npm](https://img.shields.io/npm/v/@antfu/eslint-config?color=a1b858&label=)](https://npmjs.com/package/@antfu/eslint-config)
+extends [antfu/eslint-config](https://github.com/antfu/eslint-config)
 
-- Single quotes, no semi
+- Double quotes, with semi
 - Auto fix for formatting (aimed to be used standalone without Prettier)
 - Designed to work with TypeScript, Vue out-of-box
 - Lint also for json, yaml, markdown
@@ -14,14 +14,14 @@
 ### Install
 
 ```bash
-pnpm add -D eslint @antfu/eslint-config
+pnpm add -D eslint @bernankez/eslint-config
 ```
 
-### Config `.eslintrc`
+### Config `.eslintrc.json`
 
 ```json
 {
-  "extends": "@antfu"
+  "extends": "@bernankez"
 }
 ```
 
@@ -52,15 +52,3 @@ Create `.vscode/settings.json`
   }
 }
 ```
-
-## Check Also
-
-- [antfu/dotfiles](https://github.com/antfu/dotfiles) - My dotfiles
-- [antfu/vscode-settings](https://github.com/antfu/vscode-settings) - My VS Code settings
-- [antfu/eslint-config](https://github.com/antfu/eslint-config) - My ESLint config
-- [antfu/ts-starter](https://github.com/antfu/ts-starter) - My starter template for TypeScript library
-- [antfu/vitesse](https://github.com/antfu/vitesse) - My starter template for Vue & Vite app
-
-## License
-
-[MIT](./LICENSE) License &copy; 2019-PRESENT [Anthony Fu](https://github.com/antfu)
