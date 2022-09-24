@@ -10,7 +10,7 @@
     "lint:fix": "eslint . --fix",
     "test": "pnpm -r run test",
     "prepare": "pnpm -r run stub",
-    "release": "bumpp package.json packages/*/package.json && pnpm -r publish --access public"
+    "release": "nrm use npm && bumpp package.json packages/*/package.json && pnpm -r publish --access public && npm use taobao"
   },
   "devDependencies": {
     "@bernankez/eslint-config": "*",
