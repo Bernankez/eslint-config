@@ -1,4 +1,5 @@
 # @bernankez/eslint-config
+[![npm](https://img.shields.io/npm/v/@bernankez/eslint-config?color=green&label=npm)](https://www.npmjs.com/package/@bernankez/eslint-config)
 
 extends [antfu/eslint-config](https://github.com/antfu/eslint-config)
 
