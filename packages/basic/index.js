@@ -335,4 +335,4 @@ module.exports = {
     'antfu/import-dedupe': 'error',
     // 'antfu/prefer-inline-type-import': 'error',
   },
-}
+};
