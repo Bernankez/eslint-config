@@ -3,7 +3,7 @@
 
 extends [antfu/eslint-config](https://github.com/antfu/eslint-config)
 
-- Double quotes, with semi
+- **Double quotes, with semi**
 - Auto fix for formatting (aimed to be used standalone without Prettier)
 - Designed to work with TypeScript, Vue out-of-box
 - Lint also for json, yaml, markdown
