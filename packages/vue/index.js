@@ -38,6 +38,7 @@ module.exports = {
     "vue/component-name-in-template-casing": ["error", "PascalCase"],
     "vue/component-options-name-casing": ["error", "PascalCase"],
     "vue/custom-event-name-casing": ["warn", "camelCase"],
+    "vue/v-on-event-hyphenation": ["warn", "always", { autofix: false }],
     "vue/define-macros-order": ["error", {
       order: ["defineProps", "defineEmits"],
     }],
