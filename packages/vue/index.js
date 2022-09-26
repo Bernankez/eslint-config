@@ -37,7 +37,7 @@ module.exports = {
     }],
     "vue/component-name-in-template-casing": ["error", "PascalCase"],
     "vue/component-options-name-casing": ["error", "PascalCase"],
-    "vue/custom-event-name-casing": ["error", "camelCase"],
+    "vue/custom-event-name-casing": ["warn", "camelCase"],
     "vue/define-macros-order": ["error", {
       order: ["defineProps", "defineEmits"],
     }],
