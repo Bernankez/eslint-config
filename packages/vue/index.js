@@ -45,6 +45,12 @@ module.exports = {
     "vue/html-comment-content-spacing": ["error", "always", {
       exceptions: ["-"],
     }],
+    "vue/html-self-closing": ["error", {
+      html: {
+        normal: "never",
+        void: "always",
+      },
+    }],
     "vue/no-restricted-v-bind": ["error", "/^v-/"],
     "vue/no-useless-v-bind": "error",
     "vue/no-v-text-v-html-on-component": "error",
