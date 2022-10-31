@@ -18,6 +18,7 @@ module.exports = {
     "*.d.ts",
     "CHANGELOG.md",
     "dist",
+    "dev-dist",
     "LICENSE*",
     "output",
     "coverage",
