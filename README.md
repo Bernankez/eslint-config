@@ -18,7 +18,7 @@ extends [antfu/eslint-config](https://github.com/antfu/eslint-config)
 pnpm add -D eslint @bernankez/eslint-config
 ```
 
-### Config `.eslintrc.json`
+### Install [VS Code ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and create Config `.eslintrc.json`
 
 ```json
 {
@@ -48,6 +48,7 @@ Create `.vscode/settings.json`
 ```json
 {
   "prettier.enable": false,
+  "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   }
