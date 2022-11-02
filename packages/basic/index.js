@@ -36,6 +36,7 @@ module.exports = {
     "html",
     "unicorn",
     "antfu",
+    "no-only-tests",
   ],
   settings: {
     "import/resolver": {
@@ -156,6 +157,7 @@ module.exports = {
       files: ["*.test.ts", "*.test.js", "*.spec.ts", "*.spec.js"],
       rules: {
         "no-unused-expressions": "off",
+        "no-only-tests/no-only-tests": "error",
       },
     },
     {
