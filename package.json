@@ -15,7 +15,7 @@
   "devDependencies": {
     "@bernankez/eslint-config": "*",
     "bumpp": "^8.2.1",
-    "eslint": "^8.23.0",
-    "typescript": "^4.8.2"
+    "eslint": "^8.27.0",
+    "typescript": "^4.9.3"
   }
 }
