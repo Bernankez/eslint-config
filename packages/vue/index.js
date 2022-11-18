@@ -1,3 +1,9 @@
+const { isPackageExists } = require("local-pkg");
+
+const TS = isPackageExists("typescript");
+
+if (!TS) { console.warn("[@bernankez/eslint-config] TypeScript is not installed, fallback to JS only."); }
+
 module.exports = {
   overrides: [
     {
@@ -9,13 +15,13 @@ module.exports = {
       rules: {
         "no-unused-vars": "off",
         "no-undef": "off",
-        "@typescript-eslint/no-unused-vars": "off",
+        ...(TS ? { "@typescript-eslint/no-unused-vars": "off" } : null),
       },
     },
   ],
   extends: [
     "plugin:vue/vue3-recommended",
-    "@bernankez/eslint-config-ts",
+    TS ? "@bernankez/eslint-config-ts" : "@bernankez/eslint-config-basic",
   ],
   rules: {
     "vue/max-attributes-per-line": "off",

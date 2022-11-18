@@ -116,12 +116,16 @@ importers:
 
   packages/vue:
     specifiers:
+      '@bernankez/eslint-config-basic': workspace:*
       '@bernankez/eslint-config-ts': workspace:*
       eslint: ^8.27.0
       eslint-plugin-vue: ^9.7.0
+      local-pkg: ^0.4.2
     dependencies:
+      '@bernankez/eslint-config-basic': link:../basic
       '@bernankez/eslint-config-ts': link:../typescript
       eslint-plugin-vue: 9.7.0_eslint@8.27.0
+      local-pkg: 0.4.2
     devDependencies:
       eslint: 8.27.0
 
@@ -1588,6 +1592,11 @@ packages:
 
   /lines-and-columns/1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
+    dev: false
+
+  /local-pkg/0.4.2:
+    resolution: {integrity: sha512-mlERgSPrbxU3BP4qBqAvvwlgW4MTg78iwJdGGnv7kibKjWcJksrG3t6LB5lXI93wXRDvG4NpUgJFmTG4T6rdrg==}
+    engines: {node: '>=14'}
     dev: false
 
   /locate-path/5.0.0:
