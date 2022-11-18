@@ -7,7 +7,7 @@ importers:
       '@bernankez/eslint-config': '*'
       bumpp: ^8.2.1
       eslint: ^8.27.0
-      typescript: ^4.9.3
+      typescript: ^4.9.0
     devDependencies:
       '@bernankez/eslint-config': link:packages/all
       bumpp: 8.2.1
@@ -89,7 +89,7 @@ importers:
       eslint-plugin-react: ^7.31.10
       eslint-plugin-react-hooks: ^4.6.0
       react: ^18.2.0
-      typescript: ^4.9.3
+      typescript: ^4.9.0
     dependencies:
       '@bernankez/eslint-config-ts': link:../typescript
       eslint-plugin-react: 7.31.10_eslint@8.27.0
