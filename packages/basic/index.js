@@ -16,6 +16,7 @@ module.exports = {
   ignorePatterns: [
     "*.min.*",
     "*.d.ts",
+    "*.css",
     "CHANGELOG.md",
     "dist",
     "dev-dist",
