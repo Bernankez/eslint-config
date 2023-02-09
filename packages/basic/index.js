@@ -17,6 +17,7 @@ module.exports = {
     "*.min.*",
     "*.d.ts",
     "*.css",
+    "*.patch",
     "CHANGELOG.md",
     "dist",
     "dev-dist",
