@@ -2,7 +2,7 @@
   "name": "@bernankez/eslint-config-ts",
   "version": "0.2.2",
   "description": "",
-  "author": "Cole <bernankez@qq.com>",
+  "author": "Cole <bernankez@qq.com> (https://github.com/Bernankez/)",
   "license": "MIT",
   "homepage": "https://github.com/Bernankez/eslint-config",
   "keywords": [
@@ -18,9 +18,9 @@
   },
   "dependencies": {
     "@bernankez/eslint-config-basic": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.43.0",
-    "@typescript-eslint/parser": "^5.43.0",
-    "eslint-plugin-antfu": "^0.31.0"
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "eslint-plugin-jest": "^27.2.1"
   },
   "devDependencies": {
     "eslint": "^8.37.0"

@@ -2,20 +2,21 @@
   "name": "@bernankez/eslint-config-monorepo",
   "version": "0.2.2",
   "private": true,
-  "packageManager": "pnpm@7.1.0",
-  "author": "Cole <bernankez@qq.com>",
+  "packageManager": "pnpm@8.0.0",
+  "author": "Cole <bernankez@qq.com> (https://github.com/Bernankez/)",
   "license": "MIT",
   "scripts": {
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "fix": "eslint . --fix",
     "test": "pnpm -r run test",
     "prepare": "pnpm -r run stub",
-    "release": "bumpp package.json packages/*/package.json && pnpm -r publish --access public"
+    "release": "bumpp -r && pnpm -r publish"
   },
   "devDependencies": {
-    "@bernankez/eslint-config": "*",
-    "bumpp": "^8.2.1",
+    "@bernankez/eslint-config": "workspace:*",
+    "bumpp": "^9.1.0",
     "eslint": "^8.37.0",
+    "eslint-plugin-antfu": "^0.38.2",
     "typescript": "^5.0.3"
   }
 }

@@ -23,6 +23,7 @@ module.exports = {
     "dev-dist",
     "LICENSE*",
     "output",
+    "out",
     "coverage",
     "public",
     "temp",
@@ -30,6 +31,17 @@ module.exports = {
     "pnpm-lock.yaml",
     "yarn.lock",
     "__snapshots__",
+    // ignore for in lint-staged
+    "*.css",
+    "*.png",
+    "*.ico",
+    "*.toml",
+    "*.patch",
+    "*.txt",
+    "*.crt",
+    "*.key",
+    "Dockerfile",
+    // force include
     "!.*rc.*",
     "!.github",
     "!.vitepress",
@@ -40,6 +52,7 @@ module.exports = {
     "unicorn",
     "antfu",
     "no-only-tests",
+    "unused-imports",
   ],
   settings: {
     "import/resolver": {
@@ -145,9 +158,15 @@ module.exports = {
       },
     },
     {
-      files: ["*.js"],
+      files: ["*.js", "*.cjs"],
       rules: {
         "@typescript-eslint/no-var-requires": "off",
+      },
+    },
+    {
+      files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
+      rules: {
+        "no-void": ["error", { allowAsStatement: true }],
       },
     },
     {
@@ -191,11 +210,33 @@ module.exports = {
     "import/no-absolute-path": "off",
 
     // Common
-    "semi": ["error", "always"],
-    "curly": ["error", "all"],
+    "no-multiple-empty-lines": ["error", { max: 1, maxBOF: 0, maxEOF: 1 }],
+    "no-unused-vars": ["warn", {
+      args: "none",
+      caughtErrors: "none",
+      ignoreRestSiblings: true,
+      vars: "all",
+    }],
     "quotes": ["error", "double"],
+    "semi": ["error", "always"],
+    "space-before-function-paren": [
+      "error",
+      {
+        anonymous: "always",
+        named: "never",
+        asyncArrow: "always",
+      },
+    ],
+
+    "curly": ["error", "all"],
     "quote-props": ["error", "consistent-as-needed"],
-    "no-unused-vars": "warn",
+
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      { vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" },
+    ],
+
     "no-param-reassign": "off",
     "array-bracket-spacing": ["error", "never"],
     "brace-style": ["error", "1tbs", { allowSingleLine: true }],
@@ -219,15 +260,6 @@ module.exports = {
     ],
     "object-curly-spacing": ["error", "always"],
     "no-return-await": "off",
-    "space-before-function-paren": [
-      "error",
-      {
-        anonymous: "always",
-        named: "never",
-        asyncArrow: "always",
-      },
-    ],
-    "no-multiple-empty-lines": ["error", { max: 1, maxBOF: 0, maxEOF: 1 }],
 
     // es6
     "no-var": "error",

@@ -1,8 +1,8 @@
 {
-  "name": "@bernankez/eslint-config-vue",
+  "name": "@bernankez/eslint-config-react",
   "version": "0.2.2",
   "description": "",
-  "author": "Cole <bernankez@qq.com>",
+  "author": "Cole <bernankez@qq.com> (https://github.com/Bernankez/)",
   "license": "MIT",
   "homepage": "https://github.com/Bernankez/eslint-config",
   "keywords": [
@@ -12,16 +12,20 @@
   "files": [
     "index.js"
   ],
+  "scripts": {
+    "lint": "eslint . --config=index.js"
+  },
   "peerDependencies": {
     "eslint": ">=7.4.0"
   },
   "dependencies": {
-    "@bernankez/eslint-config-basic": "workspace:*",
     "@bernankez/eslint-config-ts": "workspace:*",
-    "eslint-plugin-vue": "^9.7.0",
-    "local-pkg": "^0.4.2"
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0"
   },
   "devDependencies": {
-    "eslint": "^8.37.0"
+    "eslint": "^8.37.0",
+    "react": "^18.2.0",
+    "typescript": "^5.0.3"
   }
 }
