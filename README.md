@@ -52,7 +52,21 @@ Install [VS Code ESLint extension](https://marketplace.visualstudio.com/items?it
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  // auto lint on save for specific file types
+  "eslint.probe": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    // including vue if you want to format vue files
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "json5"
+  ]
 }
 ```
 
@@ -62,11 +76,11 @@ Type aware rules are enabled when a `tsconfig.eslint.json` is found in the proje
 
 ```js
 // .eslintrc.js
-process.env.ESLINT_TSCONFIG = 'tsconfig.json'
+process.env.ESLINT_TSCONFIG = "tsconfig.json";
 
 module.exports = {
-  extends: '@bernankez'
-}
+  extends: "@bernankez"
+};
 ```
 
 ### Lint Staged
