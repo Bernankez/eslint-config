@@ -30,6 +30,7 @@ module.exports = {
     "pnpm-lock.yaml",
     "yarn.lock",
     "__snapshots__",
+    "!.*rc.*",
     "!.github",
     "!.vitepress",
     "!.vscode",
