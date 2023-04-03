@@ -19,6 +19,8 @@ module.exports = {
     "CHANGELOG.md",
     "dist",
     "dev-dist",
+    ".nuxt",
+    ".output",
     "LICENSE*",
     "output",
     "out",
