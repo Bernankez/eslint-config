@@ -151,9 +151,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^5.57.0
         version: 5.57.0(eslint@8.37.0)(typescript@5.0.3)
-      eslint-plugin-antfu:
-        specifier: ^0.38.2
-        version: 0.38.2(eslint@8.37.0)(typescript@5.0.3)
       eslint-plugin-jest:
         specifier: ^27.2.1
         version: 27.2.1(@typescript-eslint/eslint-plugin@5.57.0)(eslint@8.37.0)(typescript@5.0.3)
