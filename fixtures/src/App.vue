@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div text-primary fdf bordered text-gray class="test-a o iiiiii text-normal b-t-1 p-2">
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>

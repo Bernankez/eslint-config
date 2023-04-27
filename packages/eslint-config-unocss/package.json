@@ -1,0 +1,24 @@
+{
+  "name": "@bernankez/eslint-config-unocss",
+  "version": "0.4.2",
+  "description": "",
+  "author": "Cole <bernankez@qq.com> (https://github.com/Bernankez/)",
+  "license": "MIT",
+  "homepage": "https://github.com/Bernankez/eslint-config",
+  "keywords": [
+    "eslint-config"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "peerDependencies": {
+    "eslint": ">=7.4.0"
+  },
+  "dependencies": {
+    "@unocss/eslint-plugin": "^0.51.8"
+  },
+  "devDependencies": {
+    "eslint": "^8.37.0"
+  }
+}
