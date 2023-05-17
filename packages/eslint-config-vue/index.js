@@ -63,6 +63,10 @@ module.exports = {
     "vue/padding-line-between-blocks": ["error", "always"],
     "vue/prefer-separate-static-class": "error",
 
+    // macros
+    "vue/prefer-define-options": "warn",
+    "vue/valid-define-options": "error",
+
     // extensions
     "vue/array-bracket-spacing": ["error", "never"],
     "vue/arrow-spacing": ["error", { before: true, after: true }],
