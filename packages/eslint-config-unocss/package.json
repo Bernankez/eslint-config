@@ -16,9 +16,9 @@
     "eslint": ">=7.4.0"
   },
   "dependencies": {
-    "@unocss/eslint-plugin": "^0.51.8"
+    "@unocss/eslint-plugin": "^0.51.13"
   },
   "devDependencies": {
-    "eslint": "^8.37.0"
+    "eslint": "^8.40.0"
   }
 }
