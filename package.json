@@ -3,7 +3,7 @@
   "version": "0.5.0",
   "private": true,
   "packageManager": "pnpm@8.0.0",
-  "author": "Cole <bernankez@qq.com> (https://github.com/Bernankez/)",
+  "author": "Cole <bernankeic@gmail.com> (https://github.com/Bernankez/)",
   "license": "MIT",
   "scripts": {
     "lint": "eslint .",
