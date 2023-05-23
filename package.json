@@ -18,6 +18,7 @@
     "bumpp": "^9.1.0",
     "eslint": "^8.40.0",
     "eslint-plugin-antfu": "^0.38.6",
+    "eslint-plugin-bernankez": "link:./packages/eslint-plugin-bernankez",
     "typescript": "^5.0.4",
     "unocss": "^0.51.13"
   }
