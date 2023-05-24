@@ -24,7 +24,6 @@ const invalids = [
   {
     code: "<template>{{fn('')}}</template>",
     options: ["double"] as const,
-    filename: "test.vue",
     output: "<template>{{fn(\"\")}}</template>",
     errors: [
       {

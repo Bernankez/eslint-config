@@ -1,6 +1,9 @@
 <template>
   <div text-primary fdf bordered text-gray class="test-a o iiiiii text-normal b-t-1 p-2">
     <a href="https://vitejs.dev" target="_blank">
+      {{ $t("test") }}
+      {{ () => { console.log("test") } }}
+      {{ "test" }}
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
     <a href="https://vuejs.org/" target="_blank">
@@ -12,6 +15,8 @@
 
 <script setup lang="ts">
 import HelloWorld from "./components/HelloWorld.vue";
+
+const $t = (...args: any[]) => { console.log(args); };
 
 defineOptions({
   name: "App",

@@ -18,6 +18,7 @@
   "dependencies": {
     "@bernankez/eslint-config-basic": "workspace:*",
     "@bernankez/eslint-config-ts": "workspace:*",
+    "eslint-plugin-bernankez": "workspace:*",
     "eslint-plugin-vue": "^9.13.0",
     "local-pkg": "^0.4.3"
   },

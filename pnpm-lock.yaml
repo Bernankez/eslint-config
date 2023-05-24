@@ -211,6 +211,9 @@ importers:
       '@bernankez/eslint-config-ts':
         specifier: workspace:*
         version: link:../eslint-config-ts
+      eslint-plugin-bernankez:
+        specifier: workspace:*
+        version: link:../eslint-plugin-bernankez
       eslint-plugin-vue:
         specifier: ^9.13.0
         version: 9.13.0(eslint@8.40.0)

@@ -19,6 +19,7 @@ module.exports = {
       },
     },
   ],
+  plugins: ["bernankez"],
   extends: [
     "plugin:vue/vue3-recommended",
     TS ? "@bernankez/eslint-config-ts" : "@bernankez/eslint-config-basic",
@@ -111,5 +112,8 @@ module.exports = {
     "vue/space-infix-ops": "error",
     "vue/space-unary-ops": ["error", { words: true, nonwords: false }],
     "vue/template-curly-spacing": "error",
+
+    // bernankez
+    "bernankez/mustache-interpolation-quotes": "error",
   },
 };
