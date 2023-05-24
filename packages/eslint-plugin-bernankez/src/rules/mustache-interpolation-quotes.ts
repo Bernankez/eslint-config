@@ -1,17 +1,17 @@
-import { hasInvalidEOF as _hasInvalidEOF, createESLintRule, defineTemplateBodyVisitor, getESLintCoreRule } from "../utils";
+import { createESLintRule, defineTemplateBodyVisitor, getESLintCoreRule } from "../utils";
 
 const baseRule = getESLintCoreRule("quotes");
 
 export const RULE_NAME = "mustache-interpolation-quotes";
 export type MessageIds = "wrongQuotes";
-export type Options = [quotes:"double" | "single" | "backtick", options?:{ avoidEscape?: boolean }];
+export type Options = [quotes: "double" | "single" | "backtick", options?: { avoidEscape?: boolean; allowTemplateLiterals?: boolean }];
 
 export default createESLintRule<Options, MessageIds>({
   name: RULE_NAME,
   meta: {
     type: "layout",
     docs: {
-      description: "Enforce the consistent use either backticks, double, or single quotes inside Vue template",
+      description: "Enforce the consistent use either backticks, double, or single quotes inside Vue template mustache",
       recommended: false,
       extendsBaseRule: true,
     },
@@ -27,6 +27,9 @@ export default createESLintRule<Options, MessageIds>({
           avoidEscape: {
             type: "boolean",
           },
+          allowTemplateLiterals: {
+            type: "boolean",
+          },
         },
         additionalProperties: false,
       },
@@ -35,32 +38,17 @@ export default createESLintRule<Options, MessageIds>({
       wrongQuotes: "Strings must use {{description}}.",
     },
   },
-  defaultOptions: ["double", { avoidEscape: true }],
-  create(context, [option = "double", { avoidEscape }]) {
+  defaultOptions: ["double", { avoidEscape: true, allowTemplateLiterals: true }],
+  create(context) {
     const rules = baseRule.create(context);
-    const sourceCode = context.getSourceCode();
-    const double = option === "double";
-    const single = option === "single";
-    const quoteChar = double ? "\"" : "'";
-    const quoteName = double ? "doublequotes" : single ? "singlequotes" : "backtick";
-    let hasInvalidEOF: boolean;
 
     return defineTemplateBodyVisitor(context, {
-      "VExpressionContainer[expression!=null]": function (node) {
-        if (hasInvalidEOF) {
-          return;
-        }
-
-        if (node.expression.type === "Literal") {
-          return rules.Literal(node.expression);
-        }
+      Literal(node) {
+        return rules.Literal(node);
       },
-    },
-    {
-      Program(node) {
-        hasInvalidEOF = _hasInvalidEOF(node);
+      TemplateLiteral(node) {
+        return rules.TemplateLiteral(node);
       },
-    },
-    );
+    });
   },
 });

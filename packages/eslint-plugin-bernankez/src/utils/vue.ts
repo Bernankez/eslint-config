@@ -25,13 +25,3 @@ export function defineTemplateBodyVisitor<TMessageIds extends string, TOptions e
   // @ts-expect-error vue custom defined prop
   return context.parserServices.defineTemplateBodyVisitor(templateBodyVisitor, scriptVisitor, options);
 }
-
-export function hasInvalidEOF(node: any): boolean {
-  const body = node.templateBody;
-  if (body == null || body.errors == null) {
-    return false;
-  }
-  return body.errors.some(
-    (error: any) => typeof error.code === "string" && error.code.startsWith("eof-"),
-  );
-}
