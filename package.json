@@ -15,6 +15,7 @@
   "devDependencies": {
     "@bernankez/eslint-config": "workspace:*",
     "@bernankez/eslint-config-unocss": "workspace:*",
+    "@types/eslint": "^8.40.0",
     "@types/semver": "^7.5.0",
     "bumpp": "^9.1.0",
     "eslint": "^8.40.0",

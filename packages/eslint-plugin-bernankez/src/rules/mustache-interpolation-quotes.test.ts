@@ -19,6 +19,18 @@ const valids = [
     code: "<template>{{fn(``)}}</template>",
     options: ["backtick"],
   },
+  {
+    code: "<template><div :class=\"[ a ? 'a' : 'b']\">{{fn(\"test\")}}</div></template>",
+    options: ["double"],
+  },
+  {
+    code: "<template><div :class=\"[ a ? 'a' : 'b']\"></div></template>",
+    options: ["double"],
+  },
+  {
+    code: "<template><div :class=\"['']\"></div></template>",
+    options: ["double"],
+  },
 ] as const;
 const invalids = [
   {

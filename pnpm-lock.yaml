@@ -10,6 +10,9 @@ importers:
       '@bernankez/eslint-config-unocss':
         specifier: workspace:*
         version: link:packages/eslint-config-unocss
+      '@types/eslint':
+        specifier: ^8.40.0
+        version: 8.40.0
       '@types/semver':
         specifier: ^7.5.0
         version: 7.5.0
@@ -233,6 +236,9 @@ importers:
       '@typescript-eslint/utils':
         specifier: ^5.59.0
         version: 5.59.6(eslint@8.40.0)(typescript@5.0.4)
+      eslint:
+        specifier: ^6.0.0 || ^7.0.0 || ^8.0.0
+        version: 8.40.0
       semver:
         specifier: ^7.5.1
         version: 7.5.1
@@ -936,6 +942,13 @@ packages:
 
   /@types/chai@4.3.5:
     resolution: {integrity: sha512-mEo1sAde+UCE6b2hxn332f1g1E8WfYRu6p5SvTKr2ZKC1f7gFJXk4h5PyGP9Dt6gCaG8y8XhwnXWC6Iy2cmBng==}
+    dev: true
+
+  /@types/eslint@8.40.0:
+    resolution: {integrity: sha512-nbq2mvc/tBrK9zQQuItvjJl++GTN5j06DaPtp3hZCpngmG6Q3xoyEmd0TwZI0gAy/G1X0zhGBbr2imsGFdFV0g==}
+    dependencies:
+      '@types/estree': 1.0.1
+      '@types/json-schema': 7.0.11
     dev: true
 
   /@types/estree@1.0.1:

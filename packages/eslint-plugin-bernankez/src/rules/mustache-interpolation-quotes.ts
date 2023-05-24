@@ -41,13 +41,35 @@ export default createESLintRule<Options, MessageIds>({
   defaultOptions: ["double", { avoidEscape: true, allowTemplateLiterals: true }],
   create(context) {
     const rules = baseRule.create(context);
+    let isInsideMustache = false;
+    const template
+      // @ts-expect-error vue-eslint-parser
+      = context.parserServices.getTemplateBodyTokenStore
+      // @ts-expect-error vue-eslint-parser
+      && context.parserServices.getTemplateBodyTokenStore();
 
     return defineTemplateBodyVisitor(context, {
-      Literal(node) {
+      Literal(node: any) {
+        if (!isInsideMustache) { return; }
         return rules.Literal(node);
       },
-      TemplateLiteral(node) {
+      TemplateLiteral(node: any) {
+        if (!isInsideMustache) { return; }
         return rules.TemplateLiteral(node);
+      },
+      "VExpressionContainer[expression!=null]": function (node) {
+        const openBrace = template.getFirstToken(node);
+        const closeBrace = template.getLastToken(node);
+
+        if (
+          !openBrace
+          || !closeBrace
+          || openBrace.type !== "VExpressionStart"
+          || closeBrace.type !== "VExpressionEnd"
+        ) {
+          return;
+        }
+        isInsideMustache = true;
       },
     });
   },
