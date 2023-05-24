@@ -20,6 +20,7 @@
     "eslint": "^8.40.0",
     "eslint-plugin-antfu": "^0.38.6",
     "eslint-plugin-bernankez": "link:./packages/eslint-plugin-bernankez",
+    "rimraf": "^5.0.1",
     "typescript": "^5.0.4",
     "unocss": "^0.51.13"
   }
