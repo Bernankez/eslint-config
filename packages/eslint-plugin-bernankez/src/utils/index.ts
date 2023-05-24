@@ -8,7 +8,7 @@ export * from "./vue";
 const require = createRequire(import.meta.url);
 const isESLintV8 = semver.major(version) >= 8;
 
-export const createESLintRule = ESLintUtils.RuleCreator(ruleName => ruleName);
+export const createESLintRule = ESLintUtils.RuleCreator(ruleName => `https://github.com/Bernankez/eslint-config/tree/master/packages/eslint-plugin-bernankez/src/rules/${ruleName}.ts`);
 
 export const getESLintCoreRule: (ruleId: string) => TSESLint.RuleModule<string, unknown[]> = isESLintV8
   ? (ruleId: string) => ESLintUtils.nullThrows(
