@@ -4,6 +4,7 @@
       {{ $t("test") }}
       {{ () => { console.log("test") } }}
       {{ "test" }}
+      <div :class="[playing ? 'a' : 'b']"></div>
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
     <a href="https://vuejs.org/" target="_blank">
@@ -14,9 +15,12 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
 
 const $t = (...args: any[]) => { console.log(args); };
+
+const playing = ref(false);
 
 defineOptions({
   name: "App",

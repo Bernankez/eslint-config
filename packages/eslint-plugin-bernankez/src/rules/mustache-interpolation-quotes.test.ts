@@ -31,6 +31,10 @@ const valids = [
     code: "<template><div :class=\"['']\"></div></template>",
     options: ["double"],
   },
+  {
+    code: "<template>{{\"test\"}}<div :class=\"[ a ? 'b' : 'c' ]\"></div></template>",
+    options: ["double"],
+  },
 ] as const;
 const invalids = [
   {

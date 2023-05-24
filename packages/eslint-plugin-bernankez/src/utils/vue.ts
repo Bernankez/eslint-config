@@ -25,3 +25,30 @@ export function defineTemplateBodyVisitor<TMessageIds extends string, TOptions e
   // @ts-expect-error vue custom defined prop
   return context.parserServices.defineTemplateBodyVisitor(templateBodyVisitor, scriptVisitor, options);
 }
+
+export function isInsideMustache<TMessageIds extends string, TOptions extends readonly unknown[]>(context: RuleContext<TMessageIds, TOptions>, node: any) {
+  if (node.parent) {
+    if (node.parent.type === "VExpressionContainer") {
+      const template
+        // @ts-expect-error vue-eslint-parser
+        = context.parserServices.getTemplateBodyTokenStore
+        // @ts-expect-error vue-eslint-parser
+        && context.parserServices.getTemplateBodyTokenStore();
+
+      const openBrace = template.getFirstToken(node.parent);
+      const closeBrace = template.getLastToken(node.parent);
+
+      if (
+        !openBrace
+        || !closeBrace
+        || openBrace.type !== "VExpressionStart"
+        || closeBrace.type !== "VExpressionEnd"
+      ) {
+        return false;
+      }
+      return true;
+    }
+    return isInsideMustache(context, node.parent);
+  }
+  return false;
+}
