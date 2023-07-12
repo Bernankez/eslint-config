@@ -1,6 +1,6 @@
 # @bernankez/eslint-config
 
-[![npm](https://img.shields.io/npm/v/@bernankez/eslint-config?color=green&label=npm)](https://www.npmjs.com/package/@bernankez/eslint-config)
+[![npm](https://img.shields.io/npm/v/@bernankez/eslint-config?color=red&label=npm)](https://www.npmjs.com/package/@bernankez/eslint-config)
 
 This repository was originally forked from [antfu/eslint-config](https://github.com/antfu/eslint-config) and modified to fit my own preferences.
 
