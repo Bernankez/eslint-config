@@ -31,6 +31,7 @@ module.exports = {
     "pnpm-lock.yaml",
     "yarn.lock",
     "__snapshots__",
+    "*gitignore",
     // ignore for in lint-staged
     "*.css",
     "*.png",
