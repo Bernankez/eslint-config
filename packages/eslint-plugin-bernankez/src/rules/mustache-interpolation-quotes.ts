@@ -1,3 +1,5 @@
+// eslint-disable-next-line unused-imports/no-unused-imports
+import { RuleListener, RuleModule } from "@typescript-eslint/utils/eslint-utils";
 import { createESLintRule, defineTemplateBodyVisitor, getESLintCoreRule, isInsideMustache } from "../utils";
 
 const baseRule = getESLintCoreRule("quotes");
@@ -12,13 +14,14 @@ export default createESLintRule<Options, MessageIds>({
     type: "layout",
     docs: {
       description: "Enforce the consistent use either backticks, double, or single quotes inside Vue template mustache",
-      recommended: false,
+      recommended: "stylistic",
       extendsBaseRule: true,
     },
     fixable: "code",
     hasSuggestions: baseRule.meta.hasSuggestions,
     schema: [
       {
+        type: ["string"],
         enum: ["double", "single", "backtick"],
       },
       {
