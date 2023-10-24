@@ -1,5 +1,5 @@
 import { extname } from "node:path";
-import type { RuleContext, RuleListener } from "@typescript-eslint/utils/dist/ts-eslint";
+import type { RuleContext, RuleListener } from "@typescript-eslint/utils/ts-eslint";
 import type { Rule } from "eslint";
 
 export interface TemplateListener
