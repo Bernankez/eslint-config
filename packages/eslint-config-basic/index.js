@@ -346,6 +346,8 @@ module.exports = {
     "unicorn/prefer-type-error": "error",
     // Use new when throwing error
     "unicorn/throw-new-error": "error",
+    // Use node module with `node:` prefix
+    "unicorn/prefer-node-protocol": "error",
 
     "no-use-before-define": ["error", { functions: false, classes: false, variables: false }],
     "eslint-comments/disable-enable-pair": "off",
