@@ -15,14 +15,14 @@
   "devDependencies": {
     "@bernankez/eslint-config": "workspace:*",
     "@bernankez/eslint-config-unocss": "workspace:*",
-    "@types/eslint": "^8.40.0",
-    "@types/semver": "^7.5.0",
-    "bumpp": "^9.1.0",
-    "eslint": "^8.40.0",
-    "eslint-plugin-antfu": "^0.38.6",
+    "@types/eslint": "^8.44.6",
+    "@types/semver": "^7.5.4",
+    "bumpp": "^9.2.0",
+    "eslint": "^8.52.0",
+    "eslint-plugin-antfu": "1.0.0-beta.12",
     "eslint-plugin-bernankez": "link:./packages/eslint-plugin-bernankez",
-    "rimraf": "^5.0.1",
-    "typescript": "^5.0.4",
-    "unocss": "^0.51.13"
+    "rimraf": "^5.0.5",
+    "typescript": "^5.2.2",
+    "unocss": "^0.57.0"
   }
 }
