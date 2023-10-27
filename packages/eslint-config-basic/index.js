@@ -262,6 +262,11 @@ module.exports = {
     "object-curly-spacing": ["error", "always"],
     "no-return-await": "off",
 
+    // asynchronous
+    "no-promise-executor-return": "off",
+    "require-atomic-updates": "off",
+    "max-nested-callbacks": ["error", { max: 5 }],
+
     // es6
     "no-var": "error",
     "prefer-const": [

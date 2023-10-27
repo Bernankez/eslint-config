@@ -39,7 +39,7 @@ module.exports = {
             "@typescript-eslint/dot-notation": ["error", { allowKeywords: true }],
             "@typescript-eslint/no-floating-promises": "error",
             "@typescript-eslint/no-misused-promises": "error",
-            "@typescript-eslint/await-thenable": "error",
+            "@typescript-eslint/await-thenable": "off",
             "@typescript-eslint/no-for-in-array": "error",
             "@typescript-eslint/no-unnecessary-type-assertion": "error",
             "@typescript-eslint/no-unsafe-argument": "error",
