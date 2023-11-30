@@ -6,6 +6,7 @@
   "author": "Cole <bernankeic@gmail.com> (https://github.com/Bernankez/)",
   "license": "MIT",
   "scripts": {
+    "dev": "pnpm eslint-flat-config-viewer",
     "lint": "eslint .",
     "fix": "eslint . --fix",
     "test": "pnpm -r run test",
@@ -19,6 +20,7 @@
     "@types/semver": "^7.5.4",
     "bumpp": "^9.2.0",
     "eslint": "^8.52.0",
+    "eslint-flat-config-viewer": "^0.1.3",
     "eslint-plugin-antfu": "1.0.0-beta.12",
     "eslint-plugin-bernankez": "link:./packages/eslint-plugin-bernankez",
     "rimraf": "^5.0.5",
