@@ -150,7 +150,7 @@ Add the following settings to your `.vscode/settings.json`:
 }
 ```
 
-### Following is the original README of the antfu repo
+## Following is the original README of the antfu repo
 
 ---
 
