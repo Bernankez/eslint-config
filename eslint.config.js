@@ -1,6 +1,12 @@
-// @ts-expect-error missing types
 import styleMigrate from "@stylistic/eslint-plugin-migrate";
-import bernankez from "./src";
+import JITI from "jiti";
+
+const jiti = JITI(import.meta.url);
+
+/**
+ * @type {import('./src').default}
+ */
+const bernankez = jiti("./src").default;
 
 export default bernankez(
   {
