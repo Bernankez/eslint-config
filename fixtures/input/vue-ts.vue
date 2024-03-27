@@ -4,6 +4,9 @@
     <button @click="incrementCounter">Click me!
     </button>
     <p>Counter: {{ counter }}</p>
+    <div />
+    <img />
+    <MyComponent></MyComponent>
   </div>
 </template>
 

@@ -18,6 +18,9 @@ function incrementCounter() {
       Click me!
     </button>
     <p>Counter: {{ counter }}</p>
+    <div />
+    <img>
+    <MyComponent />
   </div>
 </template>
 

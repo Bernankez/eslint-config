@@ -170,6 +170,12 @@ export async function vue(
               "vue/html-comment-content-spacing": ["error", "always", {
                 exceptions: ["-"],
               }],
+              "vue/html-self-closing": ["error", {
+                html: {
+                  normal: "never",
+                  void: "always",
+                },
+              }],
               "vue/key-spacing": ["error", { afterColon: true, beforeColon: false }],
               "vue/keyword-spacing": ["error", { after: true, before: true }],
               "vue/object-curly-newline": "off",
