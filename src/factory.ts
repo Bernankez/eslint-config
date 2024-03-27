@@ -1,7 +1,8 @@
 import process from "node:process";
 import fs from "node:fs";
 import { isPackageExists } from "local-pkg";
-import type { Awaitable, FlatConfigItem, OptionsConfig, UserConfigItem } from "./types";
+import { FlatConfigPipeline } from "eslint-flat-config-utils";
+import type { Awaitable, FlatConfigItem, OptionsConfig } from "./types";
 import {
   astro,
   comments,
@@ -26,7 +27,7 @@ import {
   vue,
   yaml,
 } from "./configs";
-import { combine, interopDefault, renamePluginInConfigs } from "./utils";
+import { interopDefault } from "./utils";
 import { formatters } from "./configs/formatters";
 
 const flatConfigProps: (keyof FlatConfigItem)[] = [
@@ -39,12 +40,6 @@ const flatConfigProps: (keyof FlatConfigItem)[] = [
   "plugins",
   "rules",
   "settings",
-];
-
-const ReactPackages = [
-  "react",
-  "next",
-  "preact",
 ];
 
 const VuePackages = [
@@ -68,22 +63,22 @@ export const defaultPluginRenaming = {
  *
  * @param {OptionsConfig & FlatConfigItem} options
  *  The options for generating the ESLint configurations.
- * @param {Awaitable<UserConfigItem | UserConfigItem[]>[]} userConfigs
+ * @param {Awaitable<FlatConfigItem | FlatConfigItem[]>[]} userConfigs
  *  The user configurations to be merged with the generated configurations.
- * @returns {Promise<UserConfigItem[]>}
+ * @returns {Promise<FlatConfigItem[]>}
  *  The merged ESLint configurations.
  */
-export async function bernankez(
+export function bernankez(
   options: OptionsConfig & FlatConfigItem = {},
-  ...userConfigs: Awaitable<UserConfigItem | UserConfigItem[]>[]
-): Promise<UserConfigItem[]> {
+  ...userConfigs: Awaitable<FlatConfigItem | FlatConfigItem[]>[]
+): FlatConfigPipeline<FlatConfigItem> {
   const {
     astro: enableAstro = false,
     autoRenamePlugins = true,
     componentExts = [],
     gitignore: enableGitignore = true,
     isInEditor = !!((process.env.VSCODE_PID || process.env.VSCODE_CWD || process.env.JETBRAINS_IDE || process.env.VIM) && !process.env.CI),
-    react: enableReact = ReactPackages.some(i => isPackageExists(i)),
+    react: enableReact = false,
     svelte: enableSvelte = false,
     typescript: enableTypeScript = isPackageExists("typescript"),
     unocss: enableUnoCSS = false,
@@ -105,10 +100,11 @@ export async function bernankez(
   if (enableGitignore) {
     if (typeof enableGitignore !== "boolean") {
       configs.push(interopDefault(import("eslint-config-flat-gitignore")).then(r => [r(enableGitignore)]));
-    } else
+    } else {
       if (fs.existsSync(".gitignore")) {
         configs.push(interopDefault(import("eslint-config-flat-gitignore")).then(r => [r()]));
       }
+    }
   }
 
   // Base configs
@@ -251,16 +247,20 @@ export async function bernankez(
     configs.push([fusedConfig]);
   }
 
-  const merged = await combine(
-    ...configs,
-    ...userConfigs,
-  );
+  let pipeline = new FlatConfigPipeline<FlatConfigItem>();
+
+  pipeline = pipeline
+    .append(
+      ...configs,
+      ...userConfigs,
+    );
 
   if (autoRenamePlugins) {
-    return renamePluginInConfigs(merged, defaultPluginRenaming);
+    pipeline = pipeline
+      .renamePlugins(defaultPluginRenaming);
   }
 
-  return merged;
+  return pipeline;
 }
 
 export type ResolvedOptions<T> = T extends boolean

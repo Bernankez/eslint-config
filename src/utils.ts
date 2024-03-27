@@ -1,6 +1,6 @@
 import process from "node:process";
 import { isPackageExists } from "local-pkg";
-import type { Awaitable, UserConfigItem } from "./types";
+import type { Awaitable, FlatConfigItem } from "./types";
 
 export const parserPlain = {
   meta: {
@@ -26,7 +26,7 @@ export const parserPlain = {
 /**
  * Combine array and non-array configs into a single array.
  */
-export async function combine(...configs: Awaitable<UserConfigItem | UserConfigItem[]>[]): Promise<UserConfigItem[]> {
+export async function combine(...configs: Awaitable<FlatConfigItem | FlatConfigItem[]>[]): Promise<FlatConfigItem[]> {
   const resolved = await Promise.all(configs);
   return resolved.flat();
 }
@@ -58,7 +58,6 @@ export function renameRules(rules: Record<string, any>, map: Record<string, stri
             return [to + key.slice(from.length), value];
           }
         }
-
         return [key, value];
       }),
   );
@@ -78,7 +77,7 @@ export function renameRules(rules: Record<string, any>, map: Record<string, stri
  * })
  * ```
  */
-export function renamePluginInConfigs(configs: UserConfigItem[], map: Record<string, string>): UserConfigItem[] {
+export function renamePluginInConfigs(configs: FlatConfigItem[], map: Record<string, string>): FlatConfigItem[] {
   return configs.map((i) => {
     const clone = { ...i };
     if (clone.rules) {
@@ -95,7 +94,6 @@ export function renamePluginInConfigs(configs: UserConfigItem[], map: Record<str
           }),
       );
     }
-
     return clone;
   });
 }

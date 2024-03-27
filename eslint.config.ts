@@ -10,6 +10,7 @@ export default bernankez(
     ignores: [
       "fixtures",
       "_fixtures",
+      "typegen.d.ts",
     ],
     formatters: true,
   },
