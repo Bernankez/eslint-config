@@ -11,6 +11,13 @@ const people: Person[] = [
 	{ name: "Charlie", age: 35 },
 ];
 
+if (true) {
+	// true
+}
+else {
+	// false
+}
+
 // eslint-disable-next-line no-console
 const log = console.log;
 
