@@ -26,8 +26,9 @@ export async function formatters(
     options.astro ? "prettier-plugin-astro" : undefined,
   ]);
 
-  if (options.slidev && options.markdown !== true && options.markdown !== "prettier")
+  if (options.slidev && options.markdown !== true && options.markdown !== "prettier") {
     throw new Error("`slidev` option only works when `markdown` is enabled with `prettier`");
+  }
 
   const {
     indent,

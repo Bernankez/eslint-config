@@ -96,19 +96,19 @@ export async function bernankez(
       ? options.stylistic
       : {};
 
-  if (stylisticOptions && !("jsx" in stylisticOptions))
+  if (stylisticOptions && !("jsx" in stylisticOptions)) {
     stylisticOptions.jsx = options.jsx ?? true;
+  }
 
   const configs: Awaitable<FlatConfigItem[]>[] = [];
 
   if (enableGitignore) {
     if (typeof enableGitignore !== "boolean") {
       configs.push(interopDefault(import("eslint-config-flat-gitignore")).then(r => [r(enableGitignore)]));
-    }
-    else {
-      if (fs.existsSync(".gitignore"))
+    } else
+      if (fs.existsSync(".gitignore")) {
         configs.push(interopDefault(import("eslint-config-flat-gitignore")).then(r => [r()]));
-    }
+      }
   }
 
   // Base configs
@@ -132,8 +132,9 @@ export async function bernankez(
     perfectionist(),
   );
 
-  if (enableVue)
+  if (enableVue) {
     componentExts.push("vue");
+  }
 
   if (enableTypeScript) {
     configs.push(typescript({
@@ -241,20 +242,23 @@ export async function bernankez(
   // User can optionally pass a flat config item to the first argument
   // We pick the known keys as ESLint would do schema validation
   const fusedConfig = flatConfigProps.reduce((acc, key) => {
-    if (key in options)
+    if (key in options) {
       acc[key] = options[key] as any;
+    }
     return acc;
   }, {} as FlatConfigItem);
-  if (Object.keys(fusedConfig).length)
+  if (Object.keys(fusedConfig).length) {
     configs.push([fusedConfig]);
+  }
 
   const merged = await combine(
     ...configs,
     ...userConfigs,
   );
 
-  if (autoRenamePlugins)
+  if (autoRenamePlugins) {
     return renamePluginInConfigs(merged, defaultPluginRenaming);
+  }
 
   return merged;
 }

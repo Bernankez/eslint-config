@@ -54,9 +54,11 @@ export function renameRules(rules: Record<string, any>, map: Record<string, stri
     Object.entries(rules)
       .map(([key, value]) => {
         for (const [from, to] of Object.entries(map)) {
-          if (key.startsWith(`${from}/`))
+          if (key.startsWith(`${from}/`)) {
             return [to + key.slice(from.length), value];
+          }
         }
+
         return [key, value];
       }),
   );
@@ -79,18 +81,21 @@ export function renameRules(rules: Record<string, any>, map: Record<string, stri
 export function renamePluginInConfigs(configs: UserConfigItem[], map: Record<string, string>): UserConfigItem[] {
   return configs.map((i) => {
     const clone = { ...i };
-    if (clone.rules)
+    if (clone.rules) {
       clone.rules = renameRules(clone.rules, map);
+    }
     if (clone.plugins) {
       clone.plugins = Object.fromEntries(
         Object.entries(clone.plugins)
           .map(([key, value]) => {
-            if (key in map)
+            if (key in map) {
               return [map[key], value];
+            }
             return [key, value];
           }),
       );
     }
+
     return clone;
   });
 }
@@ -105,17 +110,20 @@ export async function interopDefault<T>(m: Awaitable<T>): Promise<T extends { de
 }
 
 export async function ensurePackages(packages: (string | undefined)[]) {
-  if (process.env.CI || process.stdout.isTTY === false)
+  if (process.env.CI || process.stdout.isTTY === false) {
     return;
+  }
 
   const nonExistingPackages = packages.filter(i => i && !isPackageExists(i)) as string[];
-  if (nonExistingPackages.length === 0)
+  if (nonExistingPackages.length === 0) {
     return;
+  }
 
   const p = await import("@clack/prompts");
   const result = await p.confirm({
     message: `${nonExistingPackages.length === 1 ? "Package is" : "Packages are"} required for this config: ${nonExistingPackages.join(", ")}. Do you want to install them?`,
   });
-  if (result)
+  if (result) {
     await import("@antfu/install-pkg").then(i => i.installPackage(nonExistingPackages, { dev: true }));
+  }
 }

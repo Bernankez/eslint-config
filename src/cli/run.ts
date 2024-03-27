@@ -48,8 +48,9 @@ export async function run(options: CliRunOptions = {}) {
   if (!argSkipPrompt) {
     result = await p.group({
       uncommittedConfirmed: () => {
-        if (argSkipPrompt || isGitClean())
+        if (argSkipPrompt || isGitClean()) {
           return Promise.resolve(true);
+        }
 
         return p.confirm({
           initialValue: false,
@@ -57,10 +58,12 @@ export async function run(options: CliRunOptions = {}) {
         });
       },
       frameworks: ({ results }) => {
-        const isArgTemplateValid = typeof argTemplate === "string" && !!frameworks.includes(<FrameworkOption>argTemplate);
+        const isArgTemplateValid = typeof argTemplate === "string"
+          && !!frameworks.includes(<FrameworkOption>argTemplate);
 
-        if (!results.uncommittedConfirmed || isArgTemplateValid)
+        if (!results.uncommittedConfirmed || isArgTemplateValid) {
           return;
+        }
 
         const message = !isArgTemplateValid && argTemplate
           ? `"${argTemplate}" isn't a valid template. Please choose from below: `
@@ -72,10 +75,12 @@ export async function run(options: CliRunOptions = {}) {
         });
       },
       extra: ({ results }) => {
-        const isArgExtraValid = argExtra?.length && !argExtra.filter(element => !extra.includes(<ExtraLibrariesOption>element)).length;
+        const isArgExtraValid = argExtra?.length
+          && !argExtra.filter(element => !extra.includes(<ExtraLibrariesOption>element)).length;
 
-        if (!results.uncommittedConfirmed || isArgExtraValid)
+        if (!results.uncommittedConfirmed || isArgExtraValid) {
           return;
+        }
 
         const message = !isArgExtraValid && argExtra
           ? `"${argExtra}" isn't a valid extra util. Please choose from below: `
@@ -89,8 +94,9 @@ export async function run(options: CliRunOptions = {}) {
       },
 
       updateVscodeSettings: ({ results }) => {
-        if (!results.uncommittedConfirmed)
+        if (!results.uncommittedConfirmed) {
           return;
+        }
 
         return p.confirm({
           initialValue: true,
@@ -104,8 +110,9 @@ export async function run(options: CliRunOptions = {}) {
       },
     }) as PromtResult;
 
-    if (!result.uncommittedConfirmed)
+    if (!result.uncommittedConfirmed) {
       return process.exit(1);
+    }
   }
 
   await updatePackageJson(result);
