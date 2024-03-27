@@ -13,8 +13,7 @@ const people: Person[] = [
 
 if (true) {
 	// true
-}
-else {
+} else {
 	// false
 }
 
@@ -22,8 +21,9 @@ else {
 const log = console.log;
 
 // Use a for...of loop to iterate over the array
-for (const person of people)
+for (const person of people) {
 	log(`Hello, my name is ${person.name} and I am ${person.age} years old.`);
+}
 
 // Define a generic function
 function identity< T >(arg: T): T {

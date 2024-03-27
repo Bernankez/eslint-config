@@ -42,6 +42,12 @@ const flatConfigProps: (keyof FlatConfigItem)[] = [
   "settings",
 ];
 
+const ReactPackages = [
+  "react",
+  "next",
+  "preact",
+];
+
 const VuePackages = [
   "vue",
   "nuxt",
@@ -78,7 +84,7 @@ export function bernankez(
     componentExts = [],
     gitignore: enableGitignore = true,
     isInEditor = !!((process.env.VSCODE_PID || process.env.VSCODE_CWD || process.env.JETBRAINS_IDE || process.env.VIM) && !process.env.CI),
-    react: enableReact = false,
+    react: enableReact = ReactPackages.some(i => isPackageExists(i)),
     svelte: enableSvelte = false,
     typescript: enableTypeScript = isPackageExists("typescript"),
     unocss: enableUnoCSS = false,
