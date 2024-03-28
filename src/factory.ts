@@ -2,7 +2,7 @@ import process from "node:process";
 import fs from "node:fs";
 import { isPackageExists } from "local-pkg";
 import { FlatConfigPipeline } from "eslint-flat-config-utils";
-import type { Awaitable, FlatConfigItem, OptionsConfig } from "./types";
+import type { Awaitable, OptionsConfig, TypedFlatConfigItem } from "./types";
 import {
   astro,
   comments,
@@ -30,7 +30,7 @@ import {
 import { interopDefault } from "./utils";
 import { formatters } from "./configs/formatters";
 
-const flatConfigProps: (keyof FlatConfigItem)[] = [
+const flatConfigProps: (keyof TypedFlatConfigItem)[] = [
   "name",
   "files",
   "ignores",
@@ -67,17 +67,17 @@ export const defaultPluginRenaming = {
 /**
  * Construct an array of ESLint flat config items.
  *
- * @param {OptionsConfig & FlatConfigItem} options
+ * @param {OptionsConfig & TypedFlatConfigItem} options
  *  The options for generating the ESLint configurations.
- * @param {Awaitable<FlatConfigItem | FlatConfigItem[]>[]} userConfigs
+ * @param {Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[]>[]} userConfigs
  *  The user configurations to be merged with the generated configurations.
- * @returns {Promise<FlatConfigItem[]>}
+ * @returns {Promise<TypedFlatConfigItem[]>}
  *  The merged ESLint configurations.
  */
 export function bernankez(
-  options: OptionsConfig & FlatConfigItem = {},
-  ...userConfigs: Awaitable<FlatConfigItem | FlatConfigItem[]>[]
-): FlatConfigPipeline<FlatConfigItem> {
+  options: OptionsConfig & TypedFlatConfigItem = {},
+  ...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[]>[]
+): FlatConfigPipeline<TypedFlatConfigItem> {
   const {
     astro: enableAstro = false,
     autoRenamePlugins = true,
@@ -101,7 +101,7 @@ export function bernankez(
     stylisticOptions.jsx = options.jsx ?? true;
   }
 
-  const configs: Awaitable<FlatConfigItem[]>[] = [];
+  const configs: Awaitable<TypedFlatConfigItem[]>[] = [];
 
   if (enableGitignore) {
     if (typeof enableGitignore !== "boolean") {
@@ -248,12 +248,12 @@ export function bernankez(
       acc[key] = options[key] as any;
     }
     return acc;
-  }, {} as FlatConfigItem);
+  }, {} as TypedFlatConfigItem);
   if (Object.keys(fusedConfig).length) {
     configs.push([fusedConfig]);
   }
 
-  let pipeline = new FlatConfigPipeline<FlatConfigItem>();
+  let pipeline = new FlatConfigPipeline<TypedFlatConfigItem>();
 
   pipeline = pipeline
     .append(
