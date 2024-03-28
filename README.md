@@ -8,6 +8,9 @@
 ### Changes in this fork
 
 - Double quotes, with semi
+- Brace style: `1tbs`
+- Curly: `all`
+- HTML self closing: `<div></div>` `<img />` `<MyComponent />`
 - React support becomes built-in and auto-detected
 
 ## Usage
