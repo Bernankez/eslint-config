@@ -25,39 +25,18 @@ npx @bernankez/eslint-config@latest
 
 ```sh
 pnpm install -D eslint @bernankez/eslint-config
+
+#for better output
+pnpm install -D eslint-formatter-mo
 ```
 
 ### Create config file
-
-With TypeScript:
-
-```sh
-pnpm install -D eslint-ts-patch eslint@npm:eslint-ts-patch
-```
-
-```ts
-// eslint.config.ts
-import bernankez from "@bernankez/eslint-config";
-
-export default bernankez();
-```
-
-With ESM:
 
 ```js
 // eslint.config.mjs
 import bernankez from "@bernankez/eslint-config";
 
 export default bernankez();
-```
-
-With CJS:
-
-```js
-// eslint.config.cjs
-const bernankez = require("@bernankez/eslint-config").default;
-
-module.exports = bernankez();
 ```
 
 Combined with legacy config:
@@ -95,8 +74,8 @@ For example:
 ```json
 {
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "eslint . -f mo",
+    "lint:fix": "eslint . -f mo --fix"
   }
 }
 ```
@@ -155,9 +134,9 @@ Add the following settings to your `.vscode/settings.json`:
 }
 ```
 
-## Following is the original README of the antfu repo
-
 ---
+
+# Following is the original README of the antfu repo
 
 - Auto fix for formatting (aimed to be used standalone **without** Prettier)
 - Sorted imports, dangling commas
