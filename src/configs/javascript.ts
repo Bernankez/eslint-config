@@ -216,7 +216,7 @@ export async function javascript(
     },
     {
       files: [`scripts/${GLOB_SRC}`, `cli.${GLOB_SRC_EXT}`],
-      name: "bernankez:scripts-overrides",
+      name: "bernankez:disables:cli",
       rules: {
         "no-console": "off",
       },

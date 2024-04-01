@@ -64,7 +64,7 @@ export async function formatters(
 
   const configs: TypedFlatConfigItem[] = [
     {
-      name: "bernankez:formatters:setup",
+      name: "bernankez:formatter:setup",
       plugins: {
         format: pluginFormat,
       },
