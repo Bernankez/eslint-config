@@ -39,7 +39,7 @@ export async function react(
 
   return [
     {
-      name: "bernankez:react:setup",
+      name: "bernankez/react/setup",
       plugins: {
         "react": pluginReact,
         "react-hooks": pluginReactHooks,
@@ -60,7 +60,7 @@ export async function react(
           },
         },
       },
-      name: "bernankez:react:rules",
+      name: "bernankez/react/rules",
       rules: {
         // recommended rules react-hooks
         "react-hooks/exhaustive-deps": "warn",

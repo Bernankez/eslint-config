@@ -35,7 +35,7 @@ export async function javascript(
       linterOptions: {
         reportUnusedDisableDirectives: true,
       },
-      name: "bernankez:javascript",
+      name: "bernankez/javascript/rules",
       plugins: {
         "antfu": pluginAntfu,
         "unused-imports": pluginUnusedImports,
@@ -216,7 +216,7 @@ export async function javascript(
     },
     {
       files: [`scripts/${GLOB_SRC}`, `cli.${GLOB_SRC_EXT}`],
-      name: "bernankez:disables:cli",
+      name: "bernankez/javascript/disables/cli",
       rules: {
         "no-console": "off",
       },

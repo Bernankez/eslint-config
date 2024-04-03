@@ -12,14 +12,16 @@ const bernankez = jiti("./src").default;
 export default bernankez(
   {
     vue: true,
-    // react: true,
+    react: true,
+    svelte: true,
+    astro: true,
     typescript: true,
+    formatters: true,
     ignores: [
       "fixtures",
       "_fixtures",
       "typegen.d.ts",
     ],
-    formatters: true,
   },
   {
     files: ["src/**/*.ts"],

@@ -23,7 +23,7 @@ export async function astro(
 
   return [
     {
-      name: "bernankez:astro:setup",
+      name: "bernankez/astro/setup",
       plugins: {
         astro: pluginAstro,
       },
@@ -37,7 +37,7 @@ export async function astro(
           parser: parserTs as any,
         },
       },
-      name: "bernankez:astro:rules",
+      name: "bernankez/astro/rules",
       rules: {
         "astro/no-set-html-directive": "off",
         "astro/semi": "off",

@@ -30,7 +30,7 @@ export async function svelte(
 
   return [
     {
-      name: "bernankez:svelte:setup",
+      name: "bernankez/svelte/setup",
       plugins: {
         svelte: pluginSvelte,
       },
@@ -46,7 +46,7 @@ export async function svelte(
             : null,
         },
       },
-      name: "bernankez:svelte:rules",
+      name: "bernankez/svelte/rules",
       processor: pluginSvelte.processors[".svelte"],
       rules: {
         "import/no-mutable-exports": "off",

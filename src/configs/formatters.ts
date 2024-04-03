@@ -64,7 +64,7 @@ export async function formatters(
 
   const configs: TypedFlatConfigItem[] = [
     {
-      name: "bernankez:formatter:setup",
+      name: "bernankez/formatter/setup",
       plugins: {
         format: pluginFormat,
       },
@@ -78,7 +78,7 @@ export async function formatters(
         languageOptions: {
           parser: parserPlain,
         },
-        name: "bernankez:formatter:css",
+        name: "bernankez/formatter/css",
         rules: {
           "format/prettier": [
             "error",
@@ -94,7 +94,7 @@ export async function formatters(
         languageOptions: {
           parser: parserPlain,
         },
-        name: "bernankez:formatter:scss",
+        name: "bernankez/formatter/scss",
         rules: {
           "format/prettier": [
             "error",
@@ -110,7 +110,7 @@ export async function formatters(
         languageOptions: {
           parser: parserPlain,
         },
-        name: "bernankez:formatter:less",
+        name: "bernankez/formatter/less",
         rules: {
           "format/prettier": [
             "error",
@@ -130,7 +130,7 @@ export async function formatters(
       languageOptions: {
         parser: parserPlain,
       },
-      name: "bernankez:formatter:html",
+      name: "bernankez/formatter/html",
       rules: {
         "format/prettier": [
           "error",
@@ -160,7 +160,7 @@ export async function formatters(
       languageOptions: {
         parser: parserPlain,
       },
-      name: "bernankez:formatter:markdown",
+      name: "bernankez/formatter/markdown",
       rules: {
         [`format/${formater}`]: [
           "error",
@@ -185,7 +185,7 @@ export async function formatters(
         languageOptions: {
           parser: parserPlain,
         },
-        name: "bernankez:formatter:slidev",
+        name: "bernankez/formatter/slidev",
         rules: {
           "format/prettier": [
             "error",
@@ -210,7 +210,7 @@ export async function formatters(
       languageOptions: {
         parser: parserPlain,
       },
-      name: "bernankez:formatter:astro",
+      name: "bernankez/formatter/astro",
       rules: {
         "format/prettier": [
           "error",
@@ -232,7 +232,7 @@ export async function formatters(
       languageOptions: {
         parser: parserPlain,
       },
-      name: "bernankez:formatter:graphql",
+      name: "bernankez/formatter/graphql",
       rules: {
         "format/prettier": [
           "error",

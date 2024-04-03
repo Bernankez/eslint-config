@@ -54,7 +54,7 @@ export async function vue(
           watchEffect: "readonly",
         },
       },
-      name: "bernankez:vue:setup",
+      name: "bernankez/vue/setup",
       plugins: {
         vue: pluginVue,
       },
@@ -74,7 +74,7 @@ export async function vue(
           sourceType: "module",
         },
       },
-      name: "bernankez:vue:rules",
+      name: "bernankez/vue/rules",
       processor: sfcBlocks === false
         ? pluginVue.processors[".vue"]
         : mergeProcessors([

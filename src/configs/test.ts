@@ -22,7 +22,7 @@ export async function test(
 
   return [
     {
-      name: "bernankez:test:setup",
+      name: "bernankez/test/setup",
       plugins: {
         test: {
           ...pluginVitest,
@@ -36,7 +36,7 @@ export async function test(
     },
     {
       files,
-      name: "bernankez:test:rules",
+      name: "bernankez/test/rules",
       rules: {
         "node/prefer-global/process": "off",
 

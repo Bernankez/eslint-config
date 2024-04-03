@@ -25,7 +25,7 @@ export async function toml(
 
   return [
     {
-      name: "bernankez:toml:setup",
+      name: "bernankez/toml/setup",
       plugins: {
         toml: pluginToml,
       },
@@ -35,7 +35,7 @@ export async function toml(
       languageOptions: {
         parser: parserToml,
       },
-      name: "bernankez:toml:rules",
+      name: "bernankez/toml/rules",
       rules: {
         "style/spaced-comment": "off",
 

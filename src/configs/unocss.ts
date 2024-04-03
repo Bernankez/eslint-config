@@ -21,7 +21,7 @@ export async function unocss(
 
   return [
     {
-      name: "bernankez:unocss",
+      name: "bernankez/unocss",
       plugins: {
         unocss: pluginUnoCSS,
       },

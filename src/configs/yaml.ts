@@ -26,7 +26,7 @@ export async function yaml(
 
   return [
     {
-      name: "bernankez:yaml:setup",
+      name: "bernankez/yaml/setup",
       plugins: {
         yaml: pluginYaml,
       },
@@ -36,7 +36,7 @@ export async function yaml(
       languageOptions: {
         parser: parserYaml,
       },
-      name: "bernankez:yaml:rules",
+      name: "bernankez/yaml/rules",
       rules: {
         "style/spaced-comment": "off",
 
