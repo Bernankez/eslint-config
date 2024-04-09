@@ -31,6 +31,7 @@
     "prepare": "simple-git-hooks",
     "prepack": "pnpm build",
     "build": "pnpm typegen && tsup --format esm,cjs --clean --dts",
+    "build:inspector": "pnpm build && npx @eslint/config-inspector build",
     "stub": "tsup --format esm",
     "dev": "tsup --format esm,cjs --watch & npx @eslint/config-inspector",
     "watch": "tsup --format esm,cjs --watch",
@@ -119,7 +120,7 @@
   "devDependencies": {
     "@antfu/eslint-plugin-prettier": "^5.0.1-1",
     "@bernankez/eslint-config": "workspace:*",
-    "@eslint/config-inspector": "^0.1.0",
+    "@eslint/config-inspector": "^0.4.3",
     "@stylistic/eslint-plugin-migrate": "^1.7.0",
     "@types/eslint": "^8.56.6",
     "@types/fs-extra": "^11.0.4",
