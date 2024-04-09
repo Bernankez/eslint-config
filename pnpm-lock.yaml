@@ -157,7 +157,7 @@ importers:
         specifier: ^9.4.0
         version: 9.4.0
       eslint:
-        specifier: 9.0.0
+        specifier: ^9.0.0
         version: 9.0.0
       eslint-formatter-mo:
         specifier: ^1.2.0
