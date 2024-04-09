@@ -15,6 +15,7 @@ import {
   node,
   perfectionist,
   react,
+  solid,
   sortPackageJson,
   sortTsconfig,
   stylistic,
@@ -85,6 +86,7 @@ export function bernankez(
     gitignore: enableGitignore = true,
     isInEditor = !!((process.env.VSCODE_PID || process.env.VSCODE_CWD || process.env.JETBRAINS_IDE || process.env.VIM) && !process.env.CI),
     react: enableReact = ReactPackages.some(i => isPackageExists(i)),
+    solid: enableSolid = false,
     svelte: enableSvelte = false,
     typescript: enableTypeScript = isPackageExists("typescript"),
     unocss: enableUnoCSS = false,
@@ -172,6 +174,14 @@ export function bernankez(
   if (enableReact) {
     configs.push(react({
       overrides: getOverrides(options, "react"),
+      typescript: !!enableTypeScript,
+    }));
+  }
+
+  if (enableSolid) {
+    configs.push(solid({
+      overrides: getOverrides(options, "solid"),
+      tsconfigPath: getOverrides(options, "typescript").tsconfigPath,
       typescript: !!enableTypeScript,
     }));
   }

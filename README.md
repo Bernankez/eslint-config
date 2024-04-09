@@ -147,6 +147,7 @@ Add the following settings to your `.vscode/settings.json`:
 - [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
 - Using [ESLint Stylistic](https://github.com/eslint-stylistic/eslint-stylistic)
 - Respects `.gitignore` by default
+- Optional [React](#react), [Svelte](#svelte), [UnoCSS](#unocss), [Astro](#astro), [Solid](#solid) support
 - Optional [React](#react), [Svelte](#svelte), [UnoCSS](#unocss), [Astro](#astro) support
 - Optional [formatters](#formatters) support for CSS, HTML, etc.
 - **Style principle**: Minimal for reading, stable for diff, consistent
@@ -580,6 +581,25 @@ Running `npx eslint` should prompt you to install the required dependencies, oth
 
 ```bash
 npm i -D eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh
+```
+
+#### Solid
+
+To enable Solid support, you need to explicitly turn it on:
+
+```js
+// eslint.config.js
+import antfu from "@antfu/eslint-config";
+
+export default antfu({
+  solid: true,
+});
+```
+
+Running `npx eslint` should prompt you to install the required dependencies, otherwise, you can install them manually:
+
+```bash
+npm i -D eslint-plugin-solid
 ```
 
 #### Svelte

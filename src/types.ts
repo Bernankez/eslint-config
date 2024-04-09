@@ -292,6 +292,16 @@ export interface OptionsConfig extends OptionsComponentExts {
   react?: boolean | OptionsOverrides;
 
   /**
+   * Enable solid rules.
+   *
+   * Requires installing:
+   * - `eslint-plugin-solid`
+   *
+   * @default false
+   */
+  solid?: boolean | OptionsOverrides;
+
+  /**
    * Enable svelte rules.
    *
    * Requires installing:
