@@ -204,7 +204,13 @@ export async function javascript(
 
         "unused-imports/no-unused-vars": [
           "error",
-          { args: "after-used", argsIgnorePattern: "^_", vars: "all", varsIgnorePattern: "^_" },
+          {
+            args: "after-used",
+            argsIgnorePattern: "^_",
+            ignoreRestSiblings: true,
+            vars: "all",
+            varsIgnorePattern: "^_",
+          },
         ],
         "use-isnan": ["error", { enforceForIndexOf: true, enforceForSwitchCase: true }],
         "valid-typeof": ["error", { requireStringLiterals: true }],
