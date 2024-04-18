@@ -56,7 +56,7 @@ export async function svelte(
           caughtErrors: "none",
           ignoreRestSiblings: true,
           vars: "all",
-          varsIgnorePattern: "^\\$\\$Props$",
+          varsIgnorePattern: "^(\\$\\$Props$|\\$\\$Events$|\\$\\$Slots$)",
         }],
 
         "svelte/comment-directive": "error",
