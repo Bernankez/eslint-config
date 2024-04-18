@@ -1,7 +1,7 @@
 import process from "node:process";
 import fs from "node:fs";
 import { isPackageExists } from "local-pkg";
-import { FlatConfigPipeline } from "eslint-flat-config-utils";
+import { FlatConfigComposer } from "eslint-flat-config-utils";
 import type { Awaitable, OptionsConfig, TypedFlatConfigItem } from "./types";
 import {
   astro,
@@ -78,7 +78,7 @@ export const defaultPluginRenaming = {
 export function bernankez(
   options: OptionsConfig & TypedFlatConfigItem = {},
   ...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[]>[]
-): FlatConfigPipeline<TypedFlatConfigItem> {
+): FlatConfigComposer<TypedFlatConfigItem> {
   const {
     astro: enableAstro = false,
     autoRenamePlugins = true,
@@ -263,20 +263,20 @@ export function bernankez(
     configs.push([fusedConfig]);
   }
 
-  let pipeline = new FlatConfigPipeline<TypedFlatConfigItem>();
+  let composer = new FlatConfigComposer<TypedFlatConfigItem>();
 
-  pipeline = pipeline
+  composer = composer
     .append(
       ...configs,
       ...userConfigs,
     );
 
   if (autoRenamePlugins) {
-    pipeline = pipeline
+    composer = composer
       .renamePlugins(defaultPluginRenaming);
   }
 
-  return pipeline;
+  return composer;
 }
 
 export type ResolvedOptions<T> = T extends boolean
