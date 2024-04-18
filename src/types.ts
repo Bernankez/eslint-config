@@ -272,14 +272,9 @@ export interface OptionsConfig extends OptionsComponentExts {
   stylistic?: boolean | (StylisticConfig & OptionsOverrides);
 
   /**
-   * Enable react rules.
+   * Enable React support.
    *
-   * Requires installing:
-   * - `eslint-plugin-react`
-   * - `eslint-plugin-react-hooks`
-   * - `eslint-plugin-react-refresh`
-   *
-   * @default false
+   * @default auto-detect based on the dependencies
    */
   react?: boolean | OptionsOverrides;
 
