@@ -2,7 +2,8 @@ import process from "node:process";
 import fs from "node:fs";
 import { isPackageExists } from "local-pkg";
 import { FlatConfigComposer } from "eslint-flat-config-utils";
-import type { Awaitable, OptionsConfig, TypedFlatConfigItem } from "./types";
+import type { Linter } from "eslint";
+import type { Awaitable, ConfigNames, OptionsConfig, TypedFlatConfigItem } from "./types";
 import {
   astro,
   comments,
@@ -77,8 +78,8 @@ export const defaultPluginRenaming = {
  */
 export function bernankez(
   options: OptionsConfig & TypedFlatConfigItem = {},
-  ...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[]>[]
-): FlatConfigComposer<TypedFlatConfigItem> {
+  ...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.FlatConfig[]>[]
+): FlatConfigComposer<TypedFlatConfigItem, ConfigNames> {
   const {
     astro: enableAstro = false,
     autoRenamePlugins = true,
@@ -263,12 +264,12 @@ export function bernankez(
     configs.push([fusedConfig]);
   }
 
-  let composer = new FlatConfigComposer<TypedFlatConfigItem>();
+  let composer = new FlatConfigComposer<TypedFlatConfigItem, ConfigNames>();
 
   composer = composer
     .append(
       ...configs,
-      ...userConfigs,
+      ...userConfigs as any,
     );
 
   if (autoRenamePlugins) {
