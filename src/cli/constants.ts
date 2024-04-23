@@ -95,7 +95,6 @@ export const extra: ExtraLibrariesOption[] = extraOptions.map(({ value }) => (va
 export const dependenciesMap = {
   astro: [
     "eslint-plugin-astro",
-    "astro-eslint-parser",
   ],
   react: [],
   slidev: [
@@ -106,7 +105,6 @@ export const dependenciesMap = {
   ],
   svelte: [
     "eslint-plugin-svelte",
-    "svelte-eslint-parser",
   ],
   vue: [],
 } as const;
