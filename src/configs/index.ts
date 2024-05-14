@@ -18,6 +18,7 @@ export * from "./unicorn";
 export * from "./unocss";
 export * from "./vue";
 export * from "./yaml";
+export * from "./regexp";
 export * from "./toml";
 export * from "./astro";
 export * from "./solid";

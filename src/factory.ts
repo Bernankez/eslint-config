@@ -16,6 +16,7 @@ import {
   node,
   perfectionist,
   react,
+  regexp,
   solid,
   sortPackageJson,
   sortTsconfig,
@@ -92,6 +93,7 @@ export function bernankez(
     gitignore: enableGitignore = true,
     isInEditor = !!((process.env.VSCODE_PID || process.env.VSCODE_CWD || process.env.JETBRAINS_IDE || process.env.VIM) && !process.env.CI),
     react: enableReact = ReactPackages.some(i => isPackageExists(i)),
+    regexp: enableRegexp = true,
     solid: enableSolid = false,
     svelte: enableSvelte = false,
     typescript: enableTypeScript = isPackageExists("typescript"),
@@ -159,6 +161,10 @@ export function bernankez(
       ...stylisticOptions,
       overrides: getOverrides(options, "stylistic"),
     }));
+  }
+
+  if (enableRegexp) {
+    configs.push(regexp(typeof enableRegexp === "boolean" ? {} : enableRegexp));
   }
 
   if (options.test ?? true) {
