@@ -18,8 +18,8 @@ export function HelloWorld({
       ? " "
       : <span style={{ color: "\grey" }}>", "</span> }
     <em>
-  { greeted }
-  </em>
+      { greeted }
+    </em>
     { (silent) ? "." : "!"}
-    </div>;
+  </div>;
 }
