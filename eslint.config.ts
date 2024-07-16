@@ -11,10 +11,11 @@ export default bernankez(
     astro: true,
     typescript: true,
     formatters: true,
+  },
+  {
     ignores: [
       "fixtures",
       "_fixtures",
-      "typegen.d.ts",
     ],
   },
   {
