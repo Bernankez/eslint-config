@@ -30,7 +30,7 @@ export async function solid(
 
   return [
     {
-      name: "antfu/solid/setup",
+      name: "bernankez/solid/setup",
       plugins: {
         solid: pluginSolid,
       },
