@@ -57,6 +57,21 @@ runWithConfig(
   },
 );
 
+// https://github.com/antfu/eslint-config/issues/255
+runWithConfig(
+  "ts-strict",
+  {
+    typescript: {
+      tsconfigPath: "../../tsconfig.json",
+    },
+  },
+  {
+    rules: {
+      "ts/no-unsafe-return": ["off"],
+    },
+  },
+);
+
 runWithConfig(
   "with-formatters",
   {
@@ -119,7 +134,7 @@ export default bernankez(
       const outputPath = join(output, file);
       if (content === source) {
         if (fs.existsSync(outputPath)) {
-          fs.remove(outputPath);
+          await fs.remove(outputPath);
         }
         return;
       }
