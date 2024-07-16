@@ -151,10 +151,7 @@ export async function typescript(
           files: filesTypeAware,
           ignores: ignoresTypeAware,
           name: "bernankez/typescript/rules-type-aware",
-          rules: {
-            ...tsconfigPath ? typeAwareRules : {},
-            ...overrides,
-          },
+          rules: typeAwareRules,
         }]
       : [],
     {

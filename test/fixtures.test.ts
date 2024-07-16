@@ -87,6 +87,7 @@ runWithConfig(
   {
     jsx: false,
     vue: false,
+    astro: true,
     markdown: false,
     formatters: {
       markdown: true,
