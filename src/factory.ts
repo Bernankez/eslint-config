@@ -12,6 +12,7 @@ import {
   javascript,
   jsdoc,
   jsonc,
+  jsx,
   markdown,
   node,
   perfectionist,
@@ -92,6 +93,7 @@ export function bernankez(
     componentExts = [],
     gitignore: enableGitignore = true,
     isInEditor = !!((process.env.VSCODE_PID || process.env.VSCODE_CWD || process.env.JETBRAINS_IDE || process.env.VIM) && !process.env.CI),
+    jsx: enableJsx = true,
     react: enableReact = ReactPackages.some(i => isPackageExists(i)),
     regexp: enableRegexp = true,
     solid: enableSolid = false,
@@ -149,6 +151,10 @@ export function bernankez(
 
   if (enableVue) {
     componentExts.push("vue");
+  }
+
+  if (enableJsx) {
+    configs.push(jsx());
   }
 
   if (enableTypeScript) {

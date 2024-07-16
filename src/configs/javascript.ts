@@ -35,6 +35,9 @@ export async function javascript(
       linterOptions: {
         reportUnusedDisableDirectives: true,
       },
+      name: "bernankez/javascript/setup",
+    },
+    {
       name: "bernankez/javascript/rules",
       plugins: {
         "antfu": pluginAntfu,
