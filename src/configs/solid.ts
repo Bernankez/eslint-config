@@ -47,7 +47,7 @@ export async function solid(
         },
         sourceType: "module",
       },
-      name: "antfu/solid/rules",
+      name: "bernankez/solid/rules",
       rules: {
         // reactivity
         "solid/components-return-once": "warn",
