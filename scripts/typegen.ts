@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import { flatConfigsToRulesDTS } from "eslint-typegen/core";
 import { builtinRules } from "eslint/use-at-your-own-risk";
+import type { Linter } from "eslint";
 import { astro, combine, comments, formatters, imports, javascript, jsdoc, jsonc, jsx, markdown, node, perfectionist, react, regexp, solid, sortPackageJson, stylistic, svelte, test, toml, typescript, unicorn, unocss, vue, yaml } from "../src";
 
 const configs = await combine(
@@ -39,7 +40,8 @@ const configs = await combine(
 
 const configNames = configs.map(i => i.name).filter(Boolean) as string[];
 
-let dts = await flatConfigsToRulesDTS(configs, {
+// TODO Waiting for `eslint-typegen` to update types
+let dts = await flatConfigsToRulesDTS(configs as any, {
   includeAugmentation: false,
 });
 
