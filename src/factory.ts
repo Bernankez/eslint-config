@@ -32,6 +32,7 @@ import {
 } from "./configs";
 import { interopDefault } from "./utils";
 import { formatters } from "./configs/formatters";
+import type { RuleOptions } from "./typegen";
 
 const flatConfigProps: (keyof TypedFlatConfigItem)[] = [
   "name",
@@ -159,6 +160,7 @@ export function bernankez(
       ...typescriptOptions,
       componentExts,
       overrides: getOverrides(options, "typescript"),
+      type: options.type,
     }));
   }
 
@@ -313,7 +315,7 @@ export function resolveSubOptions<K extends keyof OptionsConfig>(
 export function getOverrides<K extends keyof OptionsConfig>(
   options: OptionsConfig,
   key: K,
-) {
+): Partial<Linter.RulesRecord & RuleOptions> {
   const sub = resolveSubOptions(options, key);
   return {
     ...(options.overrides as any)?.[key],
