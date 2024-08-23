@@ -35,8 +35,8 @@
     "stub": "tsup --format esm",
     "dev": "npx @eslint/config-inspector --config eslint.config.ts",
     "watch": "tsup --format esm,cjs --watch",
-    "lint": "eslint . -f mo",
-    "fix": "eslint . -f mo --fix",
+    "lint": "eslint --flag unstable_ts_config . -f mo",
+    "fix": "eslint --flag unstable_ts_config . -f mo --fix",
     "typegen": "esno scripts/typegen.ts",
     "release": "bumpp && pnpm publish",
     "test": "vitest",
@@ -140,7 +140,6 @@
     "@unocss/eslint-plugin": "^0.62.2",
     "astro-eslint-parser": "^1.0.2",
     "bumpp": "^9.5.1",
-    "bundle-require": "^5.0.0",
     "eslint": "^9.9.0",
     "eslint-formatter-mo": "^1.2.0",
     "eslint-plugin-astro": "^1.2.3",
@@ -152,6 +151,7 @@
     "execa": "^9.3.1",
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",
+    "jiti": "^1.21.6",
     "lint-staged": "^15.2.9",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-slidev": "^1.0.5",
@@ -171,6 +171,6 @@
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
-    "*": "eslint --fix"
+    "*": "eslint --flag unstable_ts_config --fix"
   }
 }
