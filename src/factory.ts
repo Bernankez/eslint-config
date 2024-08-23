@@ -91,7 +91,6 @@ export function bernankez(
     autoRenamePlugins = true,
     componentExts = [],
     gitignore: enableGitignore = true,
-    isInEditor = isInEditorEnv(),
     jsx: enableJsx = true,
     react: enableReact = ReactPackages.some(i => isPackageExists(i)),
     regexp: enableRegexp = true,
@@ -101,6 +100,15 @@ export function bernankez(
     unocss: enableUnoCSS = false,
     vue: enableVue = VuePackages.some(i => isPackageExists(i)),
   } = options;
+
+  let isInEditor = options.isInEditor;
+  if (isInEditor == null) {
+    isInEditor = isInEditorEnv();
+    if (isInEditor) {
+    // eslint-disable-next-line no-console
+      console.log("[@bernankez/eslint-config] Detected running in editor, some rules are disabled.");
+    }
+  }
 
   const stylisticOptions = options.stylistic === false
     ? false
