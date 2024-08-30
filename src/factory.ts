@@ -4,6 +4,7 @@ import type { Linter } from "eslint";
 import type { Awaitable, ConfigNames, OptionsConfig, TypedFlatConfigItem } from "./types";
 import {
   astro,
+  command,
   comments,
   ignores,
   imports,
@@ -153,6 +154,7 @@ export function bernankez(
     imports({
       stylistic: stylisticOptions,
     }),
+    command(),
 
     // Optional plugins (installed but not enabled by default)
     perfectionist(),
