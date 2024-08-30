@@ -95,6 +95,7 @@ export function bernankez(
     solid: enableSolid = false,
     svelte: enableSvelte = false,
     typescript: enableTypeScript = isPackageExists("typescript"),
+    unicorn: enableUnicorn = true,
     unocss: enableUnoCSS = false,
     vue: enableVue = VuePackages.some(i => isPackageExists(i)),
   } = options;
@@ -146,11 +147,14 @@ export function bernankez(
     imports({
       stylistic: stylisticOptions,
     }),
-    unicorn(),
 
     // Optional plugins (installed but not enabled by default)
     perfectionist(),
   );
+
+  if (enableUnicorn) {
+    configs.push(unicorn(enableUnicorn === true ? {} : enableUnicorn));
+  }
 
   if (enableVue) {
     componentExts.push("vue");
