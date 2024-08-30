@@ -12,6 +12,7 @@
 - Curly: `all`
 - HTML self closing: `<div></div>` `<img />` `<MyComponent />`
 - React support becomes built-in and auto-detected
+- Requires ESLint v9.5.0+
 
 ## Usage
 
