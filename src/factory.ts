@@ -6,6 +6,7 @@ import {
   astro,
   command,
   comments,
+  disables,
   ignores,
   imports,
   javascript,
@@ -287,6 +288,10 @@ export function bernankez(
       typeof stylisticOptions === "boolean" ? {} : stylisticOptions,
     ));
   }
+
+  configs.push(
+    disables(),
+  );
 
   if ("files" in options) {
     throw new Error("[@bernankez/eslint-config] The first argument should not contain the \"files\" property as the options are supposed to be global. Place it in the second or later config instead.");
