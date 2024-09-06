@@ -2,15 +2,15 @@
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
-import c from "picocolors";
 import * as p from "@clack/prompts";
+import c from "picocolors";
 
 import { extra, extraOptions, frameworkOptions, frameworks } from "./constants";
+import { updateEslintFiles } from "./stages/update-eslint-files";
+import { updatePackageJson } from "./stages/update-package-json";
+import { updateVscodeSettings } from "./stages/update-vscode-settings";
 import { isGitClean } from "./utils";
 import type { ExtraLibrariesOption, FrameworkOption, PromItem, PromptResult } from "./types";
-import { updatePackageJson } from "./stages/update-package-json";
-import { updateEslintFiles } from "./stages/update-eslint-files";
-import { updateVscodeSettings } from "./stages/update-vscode-settings";
 
 export interface CliRunOptions {
   /**
