@@ -44,6 +44,7 @@ export async function stylistic(
       rules: {
         ...config.rules,
 
+        "antfu/consistent-chaining": "error",
         "antfu/consistent-list-newline": "error",
         "antfu/if-newline": "error",
         "antfu/top-level-function": "error",

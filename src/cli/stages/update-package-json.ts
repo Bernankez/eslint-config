@@ -19,9 +19,7 @@ export async function updatePackageJson(result: PromptResult): Promise<void> {
 
   pkg.devDependencies ??= {};
   pkg.devDependencies["@bernankez/eslint-config"] = `^${pkgJson.version}`;
-  pkg.devDependencies.eslint ??= pkgJson.devDependencies.eslint
-    .replace("npm:eslint-ts-patch@", "")
-    .replace(/-\d+$/, "");
+  pkg.devDependencies.eslint ??= pkgJson.devDependencies.eslint.replace("npm:eslint-ts-patch@", "").replace(/-\d+$/, "");
 
   const addedPackages: string[] = [];
 
