@@ -35,8 +35,8 @@
     "stub": "tsup --format esm",
     "dev": "npx @eslint/config-inspector --config eslint.config.ts",
     "watch": "tsup --format esm,cjs --watch",
-    "lint": "eslint --flag unstable_ts_config . -f mo",
-    "fix": "eslint --flag unstable_ts_config . -f mo --fix",
+    "lint": "eslint . -f mo",
+    "fix": "eslint . -f mo --fix",
     "typegen": "esno scripts/typegen.ts",
     "release": "bumpp && pnpm publish",
     "test": "vitest",
@@ -176,6 +176,6 @@
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
-    "*": "eslint --flag unstable_ts_config --fix"
+    "*": "eslint --fix"
   }
 }
