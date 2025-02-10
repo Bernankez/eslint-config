@@ -15,10 +15,7 @@
     "eslint-config"
   ],
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
+    ".": "./dist/index.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -30,11 +27,11 @@
   "scripts": {
     "prepare": "simple-git-hooks",
     "prepack": "pnpm build",
-    "build": "pnpm typegen && tsup --format esm,cjs --clean --dts",
+    "build": "pnpm typegen && tsup --clean --dts",
     "build:inspector": "pnpm build && npx @eslint/config-inspector build",
-    "stub": "tsup --format esm",
+    "stub": "tsup",
     "dev": "npx @eslint/config-inspector --config eslint.config.ts",
-    "watch": "tsup --format esm,cjs --watch",
+    "watch": "tsup --watch",
     "lint": "eslint . -f mo",
     "fix": "eslint . -f mo --fix",
     "typegen": "esno scripts/typegen.ts",
