@@ -37,13 +37,6 @@ export async function disables(): Promise<TypedFlatConfigItem[]> {
       },
     },
     {
-      files: ["**/*.{test,spec}.([tj])s?(x)"],
-      name: "antfu/disables/test",
-      rules: {
-        "no-unused-expressions": "off",
-      },
-    },
-    {
       files: ["**/*.js", "**/*.cjs"],
       name: "antfu/disables/cjs",
       rules: {
