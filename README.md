@@ -122,6 +122,7 @@ Add the following settings to your `.vscode/settings.json`:
     "html",
     "markdown",
     "json",
+    "json5",
     "jsonc",
     "yaml",
     "toml",
