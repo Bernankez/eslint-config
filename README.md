@@ -130,6 +130,7 @@ Add the following settings to your `.vscode/settings.json`:
     "gql",
     "graphql",
     "astro",
+    "svelte",
     "css",
     "less",
     "scss",
