@@ -157,14 +157,8 @@ export async function formatters(
       rules: {
         "format/prettier": [
           "error",
-          mergePrettierOptions({
-            ...prettierXmlOptions,
-            ...prettierOptions,
-          }, {
-            parser: "xml",
-            plugins: [
-              "@prettier/plugin-xml",
-            ],
+          mergePrettierOptions(prettierOptions, {
+            parser: "html",
           }),
         ],
       },
