@@ -50,5 +50,13 @@ export async function disables(): Promise<TypedFlatConfigItem[]> {
         "ts/no-require-imports": "off",
       },
     },
+    {
+      files: [`**/*.config.${GLOB_SRC_EXT}`, `**/*.config.*.${GLOB_SRC_EXT}`],
+      name: "antfu/disables/config-files",
+      rules: {
+        "no-console": "off",
+        "ts/explicit-function-return-type": "off",
+      },
+    },
   ];
 }
