@@ -67,6 +67,8 @@ export const GLOB_EXCLUDE = [
   "**/.temp",
   "**/tmp",
   "**/.tmp",
+  // MacOS metadata files
+  "**/._*",
   "**/.history",
   "**/.vitepress/cache",
   "**/.nuxt",
