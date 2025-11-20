@@ -11,5 +11,6 @@
     "skipDefaultLibCheck": true,
     "skipLibCheck": true
   },
-  "include": ["src", "test", "tsup.config.ts", "cjs-shims.ts"]
+  "include": ["src", "test", "tsup.config.ts", "cjs-shims.ts"],
+  "exclude": ["fixtures", "_fixtures"]
 }

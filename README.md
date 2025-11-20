@@ -2,7 +2,7 @@
 
 ## TODOs
 
-- [ ] Unit tests & fixtures
+- [ ] WIP:Unit tests & fixtures
 
 - [ ] CLI navigate
 
@@ -10,6 +10,6 @@
 
 - [ ] LICENSE file
 
-- [ ] prepare in package.json script
+- [x] prepare in package.json script
 
 - [ ] CI & release(changelogithub) workflows
