@@ -1,37 +1,28 @@
 import type { OptionsConfig, TypedFlatConfigItem } from "@antfu/eslint-config";
-import type { bernankezOptions } from ".";
+import type { createDefaultOptions } from ".";
 import defu from "defu";
 import { isPackageExists } from "local-pkg";
 
 const VuePackages = ["vue", "nuxt", "vitepress", "@slidev/cli"];
 
-type BernankezOptions = typeof bernankezOptions;
+type DefaultOptions = ReturnType<typeof createDefaultOptions>;
 
 export function mergeOptions(
-  customOptions: BernankezOptions,
+  customOptions: DefaultOptions,
   userOptions: OptionsConfig & Omit<TypedFlatConfigItem, "files">,
 ): OptionsConfig & Omit<TypedFlatConfigItem, "files"> {
-  const vue = mergeSubOptions(customOptions.vue, userOptions.vue, VuePackages);
   const javascript = defu({}, userOptions.javascript ?? {}, customOptions.javascript);
-  const typescript = mergeSubOptions(
-    customOptions.typescript,
-    userOptions.typescript,
-    ["typescript"],
-  );
-  const stylistic = mergeSubOptions(
-    customOptions.stylistic,
-    userOptions.stylistic ?? true,
-  );
-  const formatters = mergeSubOptions(
-    customOptions.formatters,
-    userOptions.formatters,
-  );
+  const typescript = mergeSubOptions(customOptions.typescript, userOptions.typescript, ["typescript"]);
+  const vue = mergeSubOptions(customOptions.vue, userOptions.vue, VuePackages);
+  // Enable stylistic rules by default
+  const stylistic = mergeSubOptions(customOptions.stylistic, userOptions.stylistic ?? true);
+  const formatters = mergeSubOptions(customOptions.formatters, userOptions.formatters);
   return {
     ...userOptions,
     lessOpinionated: userOptions.lessOpinionated ?? customOptions.lessOpinionated,
-    vue,
     javascript,
     typescript,
+    vue,
     stylistic,
     formatters,
   };
