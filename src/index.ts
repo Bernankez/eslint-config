@@ -79,6 +79,10 @@ export function createDefaultOptions(config: CreateDefaultOptionsConfig = {}) {
     formatters: {
       markdown: "dprint",
     },
+    ignores: [
+      // MacOS metadata files
+      "**/._*",
+    ],
   } satisfies OptionsConfig & Omit<TypedFlatConfigItem, "files">;
   return defaultOptions;
 }
@@ -99,7 +103,7 @@ export function bernankez(
   const defaultOptions = createDefaultOptions({ isInEditor });
   const mergedOptions = mergeOptions(defaultOptions, options);
 
-  const composer = antfu(mergedOptions, ...userConfigs);
+  const composer = antfu({ ...mergedOptions }, ...userConfigs);
   if (isInEditor) {
     composer.disableRulesFix([
       "no-useless-return",

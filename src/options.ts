@@ -17,6 +17,7 @@ export function mergeOptions(
   // Enable stylistic rules by default
   const stylistic = mergeSubOptions(customOptions.stylistic, userOptions.stylistic ?? true);
   const formatters = mergeSubOptions(customOptions.formatters, userOptions.formatters);
+  const ignores = mergeIgnores(customOptions.ignores, userOptions.ignores ?? []) as (OptionsConfig & Omit<TypedFlatConfigItem, "files">)["ignores"];
   return {
     ...userOptions,
     lessOpinionated: userOptions.lessOpinionated ?? customOptions.lessOpinionated,
@@ -25,6 +26,7 @@ export function mergeOptions(
     vue,
     stylistic,
     formatters,
+    ignores,
   };
 }
 
@@ -48,4 +50,13 @@ export function mergeSubOptions<T extends object, Custom extends T>(
       return defu<T, [T, Custom]>({}, userOptions, customOptions);
     }
   }
+}
+
+export function mergeIgnores(customIgnores: string[], userIgnores: string[] | ((originals: string[]) => string[])): string[] | ((originals: string[]) => string[]) {
+  if (Array.isArray(userIgnores)) {
+    return [...customIgnores, ...userIgnores];
+  }
+  return (originals) => {
+    return [...userIgnores([...originals, ...customIgnores])];
+  };
 }
