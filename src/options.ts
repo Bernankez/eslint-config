@@ -5,7 +5,7 @@ import { isPackageExists } from "local-pkg";
 
 const VuePackages = ["vue", "nuxt", "vitepress", "@slidev/cli"];
 
-type DefaultOptions = ReturnType<typeof createDefaultOptions>;
+export type DefaultOptions = ReturnType<typeof createDefaultOptions>;
 
 export function mergeOptions(
   customOptions: DefaultOptions,
