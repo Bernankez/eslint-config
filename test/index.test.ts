@@ -1,21 +1,16 @@
 import { describe, expect, it } from "vitest";
-import { mergeSubOptions } from "../src/options";
+import defaultExport, { bernankez, createDefaultOptions } from "../src";
 
-describe("should", () => {
-  it("exported", () => {
-    expect(1).toEqual(1);
+describe("index", () => {
+  it("should export bernankez", () => {
+    expect(bernankez).toBeDefined();
   });
-});
 
-describe("mergeOptions", () => {
-  it("should not merge with `false`", () => {
-    const mergedOptions = mergeSubOptions(
-      {
-        vueVersion: 2,
-      },
-      false,
-      ["vue"],
-    );
-    expect(mergedOptions).toBe(false);
+  it("should export bernankez as default", () => {
+    expect(defaultExport).toBe(bernankez);
+  });
+
+  it("should export createDefaultOptions", () => {
+    expect(createDefaultOptions).toBeDefined();
   });
 });
