@@ -69,19 +69,28 @@
   },
   "devDependencies": {
     "@antfu/ni": "catalog:script",
+    "@eslint-react/eslint-plugin": "catalog:peer",
     "@types/node": "catalog:types",
     "bumpp": "catalog:script",
     "eslint": "catalog:peer",
     "eslint-formatter-mo": "catalog:lint",
+    "eslint-plugin-astro": "catalog:peer",
+    "eslint-plugin-react-hooks": "catalog:peer",
+    "eslint-plugin-react-refresh": "catalog:peer",
+    "eslint-plugin-solid": "catalog:peer",
+    "eslint-plugin-svelte": "catalog:peer",
     "execa": "catalog:test",
     "lint-staged": "catalog:hook",
     "simple-git-hooks": "catalog:hook",
+    "svelte": "catalog:peer",
+    "svelte-eslint-parser": "catalog:peer",
     "tinyglobby": "catalog:test",
     "tsup": "catalog:build",
     "tsx": "catalog:script",
     "typescript": "catalog:types",
     "vite": "catalog:test",
-    "vitest": "catalog:test"
+    "vitest": "catalog:test",
+    "vue": "catalog:peer"
   },
   "resolutions": {
     "eslint": "catalog:peer"

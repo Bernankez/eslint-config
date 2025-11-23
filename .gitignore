@@ -79,3 +79,6 @@ dist
 
 # Mac
 .DS_Store
+._*
+
+_fixtures

@@ -13,7 +13,7 @@ https://github.com/Bernankez/eslint-config/blob/v4/src/index.ts#L18
 
 ## TODOs
 
-- [ ] WIP:Unit tests & fixtures
+- [x] Unit tests & fixtures
 
 - [ ] CLI navigate
 

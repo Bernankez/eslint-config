@@ -15,10 +15,106 @@ afterAll(async () => {
   await fs.rm("_fixtures", { recursive: true, force: true });
 });
 
+runWithConfig("js", {
+  typescript: false,
+  vue: false,
+});
+
 runWithConfig("all", {
   typescript: true,
   vue: true,
+  svelte: true,
+  astro: true,
 });
+
+runWithConfig("no-style", {
+  typescript: true,
+  vue: true,
+  stylistic: false,
+});
+
+runWithConfig(
+  "tab-double-quotes",
+  {
+    typescript: true,
+    vue: true,
+    stylistic: {
+      indent: "tab",
+      quotes: "double",
+    },
+  },
+  {
+    rules: {
+      "style/no-mixed-spaces-and-tabs": "off",
+    },
+  },
+);
+
+// https://github.com/antfu/eslint-config/issues/255
+runWithConfig(
+  "ts-override",
+  {
+    typescript: true,
+  },
+  {
+    rules: {
+      "ts/consistent-type-definitions": ["error", "type"],
+    },
+  },
+);
+
+// https://github.com/antfu/eslint-config/issues/255
+runWithConfig(
+  "ts-strict",
+  {
+    typescript: {
+      tsconfigPath: "./tsconfig.json",
+    },
+  },
+  {
+    rules: {
+      "ts/no-unsafe-return": ["off"],
+    },
+  },
+);
+
+// https://github.com/antfu/eslint-config/issues/618
+runWithConfig(
+  "ts-strict-with-react",
+  {
+    typescript: {
+      tsconfigPath: "./tsconfig.json",
+    },
+    react: true,
+  },
+  {
+    rules: {
+      "ts/no-unsafe-return": ["off"],
+    },
+  },
+);
+
+runWithConfig(
+  "with-formatters",
+  {
+    typescript: true,
+    vue: true,
+    astro: true,
+    formatters: true,
+  },
+);
+
+runWithConfig(
+  "no-markdown-with-formatters",
+  {
+    jsx: false,
+    vue: false,
+    markdown: false,
+    formatters: {
+      markdown: true,
+    },
+  },
+);
 
 function runWithConfig(name: string, configs: OptionsConfig, ...items: TypedFlatConfigItem[]) {
   it.concurrent(name, async ({ expect }) => {
