@@ -1,28 +1,46 @@
-# eslint-config
+# @bernankez/eslint-config [![npm](https://img.shields.io/npm/v/@bernankez/eslint-config?color=c14344&label=npm)](https://npmjs.com/package/@bernankez/eslint-config)
 
-This config internal use antfu's eslint config, and has a default config to merge with user's config.
-See [createDefaultOptions](https://github.com/Bernankez/eslint-config/blob/v4/src/index.ts#L18) for detailed default config.
-https://github.com/Bernankez/eslint-config/blob/v4/src/index.ts#L18
+## Usage
 
-> From v4, this config re-exports antfu's eslint config, with default options.
-> Before v4, this config was forked from antfu's eslint config. V4与之前版本可能有一些规则上的差异
-> From v3, drop cjs build
-> From v2, requires ESLint v9.5+
-> From v1, support ESLint flat config
-> For legacy eslint config, use v0.x
+Install manually:
 
-## TODOs
+```sh
+pnpm add -D @bernankez/eslint-config
+```
 
-- [x] Unit tests & fixtures
+Create `eslint.config.mjs` in your project root:
 
-- [x] CLI navigate
+```javascript
+import bernankez from "@bernankez/eslint-config";
 
-- [x] Specify `engine` field in package.json
+export default bernankez();
+```
 
-- [x] LICENSE file
+### Main changes
 
-- [x] prepare in package.json script
+- Double quotes, with semi
+- Brace style: `stroustrup`
+- Curly: `all`
+- HTML self closing: `<div></div>` `<img />` `<MyComponent />`
 
-- [x] CI & release(changelogithub) workflows
+> [!NOTE]
+> This config internally uses antfu's ESLint config with some of my default settings. To see the differences in the default rules, please refer to [this file](https://github.com/Bernankez/eslint-config/blob/master/src/index.ts#L18).
+>
+> For detailed configurations, directly check [antfu's ESLint config](https://github.com/antfu/eslint-config#readme).
+>
+> When calling `npx @bernankez/eslint-config`, all params are passed through **as-is** to `@antfu/eslint-config`.
 
-- [ ] Migrate from tsup to tsdown
+> [!IMPORTANT]
+> From v4, the internal implementation of this config has changed. It now re-exports antfu's ESLint config along with some of my default settings. This may result in differences in certain ESLint rules compared to previous versions. Please take note.
+>
+> v3 dropped the cjs build.
+>
+> From v2, ESLint v9.5 or higher is required.
+>
+> From v1, ESLint flat config is supported.
+>
+> For legacy ESLint config, please use v0.x
+
+## License
+
+[MIT](https://github.com/Bernankez/eslint-config/blob/master/LICENSE) License © 2022-PRESENT [科科Cole](https://github.com/Bernankez)
