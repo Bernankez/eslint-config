@@ -56,7 +56,7 @@
     "prepack": "nr build",
     "prepare": "simple-git-hooks",
     "preview": "node --watch bin/index.js",
-    "release": "bumpp && npm publish",
+    "release": "bumpp && pnpm publish",
     "start": "tsx src/index.ts",
     "test": "vitest",
     "test:once": "vitest run",
