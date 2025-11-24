@@ -17,7 +17,7 @@ https://github.com/Bernankez/eslint-config/blob/v4/src/index.ts#L18
 
 - [x] CLI navigate
 
-- [ ] Specify `engine` field in package.json
+- [x] Specify `engine` field in package.json
 
 - [ ] LICENSE file
 
