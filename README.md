@@ -19,7 +19,7 @@ https://github.com/Bernankez/eslint-config/blob/v4/src/index.ts#L18
 
 - [x] Specify `engine` field in package.json
 
-- [ ] LICENSE file
+- [x] LICENSE file
 
 - [x] prepare in package.json script
 
