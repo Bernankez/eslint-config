@@ -2,7 +2,7 @@
   "name": "@bernankez/eslint-config",
   "type": "module",
   "version": "4.0.0",
-  "packageManager": "pnpm@10.22.0",
+  "packageManager": "pnpm@10.23.0",
   "description": "Cole's ESLint config",
   "author": {
     "name": "Cole",
@@ -52,6 +52,7 @@
     "build:inspector": "nr build && nlx @eslint/config-inspector build",
     "fix": "eslint . -f mo --fix",
     "lint": "eslint . -f mo",
+    "bump": "nlx taze major -w -r --force",
     "prepack": "nr build",
     "prepare": "simple-git-hooks",
     "preview": "node --watch bin/index.js",
