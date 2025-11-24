@@ -23,6 +23,6 @@ https://github.com/Bernankez/eslint-config/blob/v4/src/index.ts#L18
 
 - [x] prepare in package.json script
 
-- [ ] CI & release(changelogithub) workflows
+- [x] CI & release(changelogithub) workflows
 
 - [ ] Migrate from tsup to tsdown
