@@ -1,5 +1,6 @@
 catalogs:
   build:
+    tsdown: ^0.16.6
     tsup: ^8.5.1
   hook:
     lint-staged: ^16.2.6
