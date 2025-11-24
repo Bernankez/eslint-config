@@ -17,6 +17,7 @@ const _zero = doubled.value + counter.value
 <template>
   <div>
     <h1>
+      <!-- Enforce unified spacing in mustache interpolations -->
       {{ greeting }}
     </h1>
     <button @click="incrementCounter">

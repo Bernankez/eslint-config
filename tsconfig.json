@@ -1,18 +1,16 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "baseUrl": ".",
+    "lib": ["ESNext"],
     "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
     "strict": true,
+    "strictNullChecks": true,
     "esModuleInterop": true,
+    "skipDefaultLibCheck": true,
     "skipLibCheck": true
   },
-  "include": [
-    "**/*.ts"
-  ],
-  "exclude": [
-    "./fixtures/**/*.*",
-    "./_fixtures/**/*.*"
-  ]
+  "include": ["src", "test", "tsup.config.ts", "cjs-shims.ts"],
+  "exclude": ["fixtures", "_fixtures"]
 }

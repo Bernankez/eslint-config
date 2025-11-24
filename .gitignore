@@ -77,14 +77,9 @@ dist
 # IDE
 .idea
 
-*.lerna_backup
-_fixtures
-
-.temp
-.history
-
+# Mac
 .DS_Store
 ._*
 
-src/typegen.d.ts
+_fixtures
 .eslint-config-inspector

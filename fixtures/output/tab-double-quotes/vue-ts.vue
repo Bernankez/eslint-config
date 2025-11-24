@@ -13,6 +13,7 @@ function incrementCounter() {
 
 <template>
 	<div>
+		<!-- Enforce unified spacing in mustache interpolations -->
 		<h1>{{ greeting }}</h1>
 		<button @click="incrementCounter">
 			Click me!

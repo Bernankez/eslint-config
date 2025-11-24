@@ -1,147 +1,46 @@
-# @bernankez/eslint-config
-
-[![npm](https://img.shields.io/npm/v/@bernankez/eslint-config?color=red&label=npm)](https://www.npmjs.com/package/@bernankez/eslint-config)
-
-> [!IMPORTANT]
-> This repository was originally forked from [@antfu/eslint-config](https://github.com/antfu/eslint-config), but may not be kept up to date with the latest changes and will eventually evolve into my own version. Some rules were modified to fit my own preferences.
-
-### Changes in this fork
-
-- Double quotes, with semi
-- Brace style: `1tbs`
-- Curly: `all`
-- HTML self closing: `<div></div>` `<img />` `<MyComponent />`
-- React support becomes built-in and auto-detected
-- Requires ESLint v9.5.0+
+# @bernankez/eslint-config [![npm](https://img.shields.io/npm/v/@bernankez/eslint-config?color=c14344&label=npm)](https://npmjs.com/package/@bernankez/eslint-config)
 
 ## Usage
 
-To set up your project, or migrate from the legacy config to the new flat config
+Install manually:
 
 ```sh
-npx @bernankez/eslint-config@latest
+pnpm add -D @bernankez/eslint-config
 ```
 
-### Install
+Create `eslint.config.mjs` in your project root:
 
-```sh
-pnpm install -D eslint @bernankez/eslint-config
-
-#for better output
-pnpm install -D eslint-formatter-mo
-```
-
-### Create config file
-
-```js
-// eslint.config.mjs
+```javascript
 import bernankez from "@bernankez/eslint-config";
 
 export default bernankez();
 ```
 
-Combined with legacy config:
+### Main changes
 
-```js
-// eslint.config.js
-const bernankez = require("@bernankez/eslint-config").default;
-const { FlatCompat } = require("@eslint/eslintrc");
+- Double quotes, with semi
+- Brace style: `stroustrup`
+- Curly: `all`
+- HTML self closing: `<div></div>` `<img />` `<MyComponent />`
 
-const compat = new FlatCompat();
+> [!NOTE]
+> This config internally uses antfu's ESLint config with some of my default settings. To see the differences in the default rules, please refer to [this file](https://github.com/Bernankez/eslint-config/blob/master/src/index.ts#L18).
+>
+> For detailed configurations, directly check [antfu's ESLint config](https://github.com/antfu/eslint-config#readme).
+>
+> When calling `npx @bernankez/eslint-config`, all params are passed through **as-is** to `@antfu/eslint-config`.
 
-module.exports = bernankez(
-  {
-    ignores: [],
-  },
-
-  // Legacy config
-  ...compat.config({
-    extends: [
-      "eslint:recommended",
-      // Other extends...
-    ],
-  })
-
-  // Other flat configs...
-);
-```
-
-> Note that `.eslintignore` no longer works in Flat config, see [customization](#customization) for more details.
-
-### Add script for package.json
-
-For example:
-
-```json
-{
-  "scripts": {
-    "lint": "eslint . -f mo",
-    "lint:fix": "eslint . -f mo --fix"
-  }
-}
-```
-
-## VS Code support (auto fix)
-
-Install [VS Code ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-
-Add the following settings to your `.vscode/settings.json`:
-
-```jsonc
-{
-  // Disable the default formatter, use eslint instead
-  "prettier.enable": false,
-  "editor.formatOnSave": false,
-
-  // Auto fix
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.organizeImports": "never"
-  },
-
-  // Silent the stylistic rules in you IDE, but still auto fix them
-  "eslint.rules.customizations": [
-    { "rule": "style/*", "severity": "off", "fixable": true },
-    { "rule": "*-indent", "severity": "off", "fixable": true },
-    { "rule": "*-spacing", "severity": "off", "fixable": true },
-    { "rule": "*-spaces", "severity": "off", "fixable": true },
-    { "rule": "*-order", "severity": "off", "fixable": true },
-    { "rule": "*-dangle", "severity": "off", "fixable": true },
-    { "rule": "*-newline", "severity": "off", "fixable": true },
-    { "rule": "*quotes", "severity": "off", "fixable": true },
-    { "rule": "*semi", "severity": "off", "fixable": true }
-  ],
-
-  // Enable eslint for all supported languages
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "vue",
-    "html",
-    "markdown",
-    "json",
-    "json5",
-    "jsonc",
-    "yaml",
-    "toml",
-    "xml",
-    "gql",
-    "graphql",
-    "astro",
-    "svelte",
-    "css",
-    "less",
-    "scss",
-    "pcss",
-    "postcss"
-  ]
-}
-```
-
-For detailed configurations, please refer to [@antfu/eslint-config](https://github.com/antfu/eslint-config#readme).
+> [!IMPORTANT]
+> From v4, the internal implementation of this config has changed. It now re-exports antfu's ESLint config along with some of my default settings. This may result in differences in certain ESLint rules compared to previous versions. Please take note.
+>
+> v3 dropped the cjs build.
+>
+> From v2, ESLint v9.5 or higher is required.
+>
+> From v1, ESLint flat config is supported.
+>
+> For legacy ESLint config, please use v0.x
 
 ## License
 
-[MIT](LICENSE) License © 2022-PRESENT [科科Cole](https://github.com/Bernankez)
+[MIT](https://github.com/Bernankez/eslint-config/blob/master/LICENSE) License © 2022-PRESENT [科科Cole](https://github.com/Bernankez)

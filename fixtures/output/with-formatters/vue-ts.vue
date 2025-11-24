@@ -13,6 +13,7 @@ function incrementCounter() {
 
 <template>
   <div>
+    <!-- Enforce unified spacing in mustache interpolations -->
     <h1>{{ greeting }}</h1>
     <button @click="incrementCounter">
       Click me!
@@ -22,17 +23,14 @@ function incrementCounter() {
 </template>
 
 <style>
-.a {
-  color: red;
-}
+.a {  color:   red }
 </style>
 
 <style lang="scss">
 $font-stack: Helvetica, sans-serif;
-$primary-color: #333;
+$primary-color:   #333;
 
-body {
-  font: 100% $font-stack;
+body { font: 100% $font-stack;
   color: $primary-color;
 }
 </style>

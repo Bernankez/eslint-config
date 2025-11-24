@@ -1,9 +1,10 @@
 <template>
   <div>
-    <h1 >{{ greeting }}</h1>
+    <!-- Enforce unified spacing in mustache interpolations -->
+    <h1 >{{greeting}}</h1>
     <button @click="incrementCounter">Click me!
     </button>
-    <p>Counter: {{ counter }}</p>
+    <p>Counter: {{ counter  }}</p>
   </div>
 </template>
 
