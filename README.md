@@ -15,7 +15,7 @@ https://github.com/Bernankez/eslint-config/blob/v4/src/index.ts#L18
 
 - [x] Unit tests & fixtures
 
-- [ ] CLI navigate
+- [x] CLI navigate
 
 - [ ] Specify `engine` field in package.json
 

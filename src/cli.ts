@@ -1,18 +1,23 @@
+import { spawn } from "node:child_process";
 import process from "node:process";
-import { cac } from "cac";
-import { version } from "../package.json";
-
-function loadArgs(argv = process.argv): { [k: string]: any } {
-  const cli = cac("eslint-config");
-  cli.version(version).help();
-  const result = cli.parse(argv);
-  return result.options;
-}
 
 function main(): void {
-  const args = loadArgs();
+  // 获取所有命令行参数（排除 node 和脚本路径）
+  const args = process.argv.slice(2);
 
-  console.log(args);
+  const child = spawn("npx", ["@antfu/eslint-config", ...args], {
+    stdio: "inherit", // 继承标准输入输出，支持交互式操作
+    shell: true, // 使用 shell 执行命令
+  });
+
+  child.on("exit", (code) => {
+    process.exit(code || 0);
+  });
+
+  child.on("error", (err) => {
+    console.error("Error executing @antfu/eslint-config:", err);
+    process.exit(1);
+  });
 }
 
 main();
