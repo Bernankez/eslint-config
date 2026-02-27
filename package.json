@@ -1,7 +1,7 @@
 {
   "name": "@bernankez/eslint-config",
   "type": "module",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "packageManager": "pnpm@10.30.3",
   "description": "Cole's ESLint config",
   "author": {
