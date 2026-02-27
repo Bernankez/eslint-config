@@ -85,7 +85,11 @@ runWithConfig(
     typescript: {
       tsconfigPath: "./tsconfig.json",
     },
-    react: true,
+    react: {
+      overrides: {
+        "react-refresh/only-export-components": "warn",
+      },
+    },
   },
   {
     rules: {

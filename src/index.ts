@@ -69,6 +69,7 @@ export function createDefaultOptions(config: CreateDefaultOptionsConfig = {}) {
       overrides: {
         "antfu/if-newline": ["error"],
         "antfu/top-level-function": ["error"],
+        "antfu/consistent-list-newline": ["error", { IfStatement: false }],
         "style/brace-style": ["error", "stroustrup"],
         "style/member-delimiter-style": [
           "error",
