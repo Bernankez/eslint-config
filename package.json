@@ -48,8 +48,8 @@
   },
   "scripts": {
     "build": "tsdown --format esm,cjs",
-    "dev": "nlx @eslint/config-inspector --config eslint.config.ts",
-    "build:inspector": "nr build && nlx @eslint/config-inspector build",
+    "dev": "npx @eslint/config-inspector --config eslint.config.ts",
+    "build:inspector": "nr build && npx @eslint/config-inspector build",
     "fix": "eslint . -f mo --fix",
     "lint": "eslint . -f mo",
     "bump": "nlx taze major -w -r --force",
