@@ -2,7 +2,7 @@
   "name": "@bernankez/eslint-config",
   "type": "module",
   "version": "5.0.1",
-  "packageManager": "pnpm@10.30.3",
+  "packageManager": "pnpm@10.33.2",
   "description": "Cole's ESLint config",
   "author": {
     "name": "Cole",
@@ -79,7 +79,6 @@
     "eslint": "catalog:peer",
     "eslint-formatter-mo": "catalog:lint",
     "eslint-plugin-astro": "catalog:peer",
-    "eslint-plugin-react-hooks": "catalog:peer",
     "eslint-plugin-react-refresh": "catalog:peer",
     "eslint-plugin-solid": "catalog:peer",
     "eslint-plugin-svelte": "catalog:peer",
