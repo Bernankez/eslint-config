@@ -98,9 +98,7 @@ export function bernankez(
   >[]
 ): FlatConfigComposer<TypedFlatConfigItem, ConfigNames> {
   let isInEditor = options.isInEditor;
-  if (isInEditor === undefined || isInEditor === null) {
-    isInEditor = isInEditorEnv();
-  }
+  isInEditor ??= isInEditorEnv();
   const defaultOptions = createDefaultOptions({ isInEditor });
   const mergedOptions = mergeOptions(defaultOptions, options);
 
