@@ -12,7 +12,7 @@ export function mergeOptions(
   userOptions: OptionsConfig & Omit<TypedFlatConfigItem, "files">,
 ): OptionsConfig & Omit<TypedFlatConfigItem, "files"> {
   const javascript = defu({}, userOptions.javascript ?? {}, customOptions.javascript);
-  const typescript = mergeSubOptions(customOptions.typescript, userOptions.typescript, ["typescript"]);
+  const typescript = mergeSubOptions(customOptions.typescript, userOptions.typescript, ["typescript", "@typescript/native-preview"]);
   const vue = mergeSubOptions(customOptions.vue, userOptions.vue, VuePackages);
   // Enable stylistic rules by default
   const stylistic = mergeSubOptions(customOptions.stylistic, userOptions.stylistic ?? true);
