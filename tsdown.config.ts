@@ -11,7 +11,12 @@ export default defineConfig({
   },
   // Suppress warnings that are promoted to errors in CI environments (e.g., Vercel sets CI=true),
   // which cause the build to fail with exit code 1.
-  inlineOnly: false,
+  deps: {
+    onlyBundle: false,
+  },
+  outputOptions: {
+    exports: "named",
+  },
   checks: {
     legacyCjs: false,
   },
