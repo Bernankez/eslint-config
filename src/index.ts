@@ -26,10 +26,14 @@ export function createDefaultOptions(config: CreateDefaultOptionsConfig = {}) {
         "no-unused-vars": [
           "warn",
           {
-            args: "none",
-            caughtErrors: "none",
-            ignoreRestSiblings: true,
+            args: "after-used",
+            argsIgnorePattern: "^_",
+            caughtErrors: "all",
+            caughtErrorsIgnorePattern: "^_",
+            destructuredArrayIgnorePattern: "^_",
             vars: "all",
+            varsIgnorePattern: "^_",
+            ignoreRestSiblings: true,
           },
         ],
         "no-use-before-define": [
@@ -40,7 +44,19 @@ export function createDefaultOptions(config: CreateDefaultOptionsConfig = {}) {
     },
     typescript: {
       overrides: {
-        "ts/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+        "ts/no-unused-vars": [
+          "warn",
+          {
+            args: "after-used",
+            argsIgnorePattern: "^_",
+            caughtErrors: "all",
+            caughtErrorsIgnorePattern: "^_",
+            destructuredArrayIgnorePattern: "^_",
+            vars: "all",
+            varsIgnorePattern: "^_",
+            ignoreRestSiblings: true,
+          },
+        ],
         "ts/no-use-before-define": [
           "error",
           { functions: false, classes: false, variables: false },
