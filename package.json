@@ -2,7 +2,7 @@
   "name": "@bernankez/eslint-config",
   "type": "module",
   "version": "5.1.1",
-  "packageManager": "pnpm@10.33.2",
+  "packageManager": "pnpm@11.3.0",
   "description": "Cole's ESLint config",
   "author": {
     "name": "Cole",
@@ -63,48 +63,48 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@antfu/eslint-config": "catalog:prod",
-    "@unocss/eslint-plugin": "catalog:peer",
-    "cac": "catalog:prod",
-    "defu": "catalog:prod",
-    "eslint-flat-config-utils": "catalog:prod",
-    "eslint-plugin-format": "catalog:peer",
-    "local-pkg": "catalog:prod"
+    "@antfu/eslint-config": "~9.0.0",
+    "@unocss/eslint-plugin": "^66.7.0",
+    "cac": "^7.0.0",
+    "defu": "^6.1.7",
+    "eslint-flat-config-utils": "^3.2.0",
+    "eslint-plugin-format": "^2.0.1",
+    "local-pkg": "^1.2.1"
   },
   "devDependencies": {
-    "@antfu/ni": "catalog:script",
-    "@eslint-react/eslint-plugin": "catalog:peer",
-    "@types/node": "catalog:types",
-    "bumpp": "catalog:script",
-    "eslint": "catalog:peer",
-    "eslint-formatter-mo": "catalog:lint",
-    "eslint-plugin-astro": "catalog:peer",
-    "eslint-plugin-react-refresh": "catalog:peer",
-    "eslint-plugin-solid": "catalog:peer",
-    "eslint-plugin-svelte": "catalog:peer",
-    "execa": "catalog:test",
-    "lint-staged": "catalog:hook",
-    "simple-git-hooks": "catalog:hook",
-    "svelte": "catalog:peer",
-    "svelte-eslint-parser": "catalog:peer",
-    "tinyglobby": "catalog:test",
-    "tsdown": "catalog:build",
-    "tsx": "catalog:script",
-    "typescript": "catalog:types",
-    "vite": "catalog:test",
-    "vitest": "catalog:test",
-    "vue": "catalog:peer"
+    "@antfu/ni": "^30.1.0",
+    "@eslint-react/eslint-plugin": "^5.8.5",
+    "@types/node": "^25.9.1",
+    "bumpp": "^11.1.0",
+    "eslint": "^10.4.0",
+    "eslint-formatter-mo": "^2.4.1",
+    "eslint-plugin-astro": "^1.7.0",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "eslint-plugin-solid": "^0.14.5",
+    "eslint-plugin-svelte": "^3.17.1",
+    "execa": "^9.6.1",
+    "nano-staged": "^1.0.2",
+    "simple-git-hooks": "^2.13.1",
+    "svelte": "^5.55.9",
+    "svelte-eslint-parser": "^1.6.1",
+    "tinyglobby": "^0.2.16",
+    "tsdown": "^0.22.0",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.14",
+    "vitest": "^4.1.7",
+    "vue": "^3.5.34"
   },
   "resolutions": {
-    "eslint": "catalog:peer"
+    "eslint": "^10.4.0"
   },
   "simple-git-hooks": {
-    "pre-commit": "nlx lint-staged"
-  },
-  "lint-staged": {
-    "*": "eslint --fix"
+    "pre-commit": "nlx nano-staged"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "nano-staged": {
+    "*": "eslint --fix"
   }
 }
