@@ -65,7 +65,6 @@ export function createDefaultOptions(config: CreateDefaultOptionsConfig = {}) {
     },
     vue: {
       overrides: {
-        "vue/brace-style": ["error", "stroustrup"],
         "vue/custom-event-name-casing": ["warn", "camelCase"],
         "vue/html-self-closing": [
           "error",
@@ -82,11 +81,11 @@ export function createDefaultOptions(config: CreateDefaultOptionsConfig = {}) {
     stylistic: {
       semi: true,
       quotes: "double",
+      braceStyle: "stroustrup",
       overrides: {
         "antfu/if-newline": ["error"],
         "antfu/top-level-function": ["error"],
         "antfu/consistent-list-newline": ["error", { IfStatement: false }],
-        "style/brace-style": ["error", "stroustrup"],
         "style/member-delimiter-style": [
           "error",
           { multiline: { delimiter: "semi" } },
