@@ -4,7 +4,7 @@ export function isInEditorEnv(): boolean {
   if (process.env.CI) {
     return false;
   }
-  if (isInGitHooksOrLintStaged()) {
+  if (isInGitHooksOrStaged()) {
     return false;
   }
   return !!(false
@@ -17,10 +17,11 @@ export function isInEditorEnv(): boolean {
   );
 }
 
-export function isInGitHooksOrLintStaged(): boolean {
+export function isInGitHooksOrStaged(): boolean {
   return !!(false
     || process.env.GIT_PARAMS
     || process.env.VSCODE_GIT_COMMAND
     || process.env.npm_lifecycle_script?.startsWith("lint-staged")
+    || process.env.npm_lifecycle_script?.startsWith("nano-starged")
   );
 }
