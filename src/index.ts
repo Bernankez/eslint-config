@@ -8,7 +8,8 @@ import type { Linter } from "eslint";
 import type { FlatConfigComposer } from "eslint-flat-config-utils";
 import antfu from "@antfu/eslint-config";
 import { mergeOptions } from "./options";
-import { isInEditorEnv } from "./utils";
+import { getRequiredPackages } from "./packages";
+import { ensurePackages, isInEditorEnv } from "./utils";
 
 export interface CreateDefaultOptionsConfig {
   isInEditor?: boolean;
@@ -103,7 +104,7 @@ export function createDefaultOptions(config: CreateDefaultOptionsConfig = {}) {
   return defaultOptions;
 }
 
-export function bernankez(
+export async function bernankez(
   options: OptionsConfig & Omit<TypedFlatConfigItem, "files"> = {},
   ...userConfigs: Awaitable<
     | TypedFlatConfigItem
@@ -111,11 +112,13 @@ export function bernankez(
     | FlatConfigComposer<any, any>
     | Linter.Config[]
   >[]
-): FlatConfigComposer<TypedFlatConfigItem, ConfigNames> {
+): Promise<FlatConfigComposer<TypedFlatConfigItem, ConfigNames>> {
   let isInEditor = options.isInEditor;
   isInEditor ??= isInEditorEnv();
   const defaultOptions = createDefaultOptions({ isInEditor });
   const mergedOptions = mergeOptions(defaultOptions, options);
+
+  await ensurePackages(getRequiredPackages(mergedOptions));
 
   const composer = antfu({ ...mergedOptions }, ...userConfigs);
   if (isInEditor) {

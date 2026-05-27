@@ -11,6 +11,12 @@ importers:
       '@antfu/eslint-config':
         specifier: ~9.0.0
         version: 9.0.0(934dba3f2a018bb5dd7a12034204195b)
+      '@antfu/install-pkg':
+        specifier: ^1.1.0
+        version: 1.1.0
+      '@clack/prompts':
+        specifier: ^1.3.0
+        version: 1.4.0
       '@unocss/eslint-plugin':
         specifier: ^66.7.0
         version: 66.7.0(eslint@10.4.0(jiti@2.6.1))(typescript@6.0.3)
@@ -1072,6 +1078,7 @@ packages:
 
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
+    deprecated: Potential CWE-502 - Update to 1.3.1 or higher
 
   '@unocss/config@66.7.0':
     resolution: {integrity: sha512-C6waL+xzqAPzz5n47qnrs4GbyAtlusNYYmcV6DKYh1MgUP4EFhMnEMyuR2mw3M3tsBpyGuehLdRK5+ECF5yLkA==}
@@ -3055,7 +3062,7 @@ snapshots:
   '@antfu/install-pkg@1.1.0':
     dependencies:
       package-manager-detector: 1.6.0
-      tinyexec: 1.1.1
+      tinyexec: 1.2.2
 
   '@antfu/ni@30.1.0':
     dependencies:
